@@ -1,0 +1,86 @@
+﻿@model DoAnNhom08LTW.Models.ViewModels.RegisterViewModel
+
+<section class="section">
+    <div class="auth_container">
+
+        <div class="auth_img">
+            <img src="~/user/image/auth-image.png"
+                 alt=""
+                 class="auth_image" />
+        </div>
+
+        <div class="auth_content">
+
+            <form asp-action="Register"
+                  asp-controller="Account"
+                  method="post"
+                  class="auth_form">
+
+                <h2 class="form_title">Create your account</h2>
+                <p class="auth_p">Enter your details below</p>
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger">
+                </div>
+
+                <div class="form_group">
+                    <input asp-for="HoTen"
+                           placeholder="Name"
+                           class="form_input" />
+                    <span asp-validation-for="HoTen"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <div class="form_group">
+                    <input asp-for="Email"
+                           placeholder="Email"
+                           class="form_input" />
+                    <span asp-validation-for="Email"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <div class="form_group form_pass">
+                    <input asp-for="Password"
+                           type="password"
+                           placeholder="Password"
+                           class="form_input" />
+                    <span asp-validation-for="Password"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <div class="form_group form_pass">
+                    <input asp-for="ConfirmPassword"
+                           type="password"
+                           placeholder="Confirm Password"
+                           class="form_input" />
+                    <span asp-validation-for="ConfirmPassword"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <div class="form_group">
+                    <button type="submit"
+                            class="form_btn">
+                        Create Account
+                    </button>
+                </div>
+
+                <div class="form_group">
+                    <span>
+                        Already have an account?
+                        <a asp-controller="Account"
+                           asp-action="Login"
+                           class="form_auth_link">
+                            Login
+                        </a>
+                    </span>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</section>

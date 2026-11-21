@@ -1,0 +1,177 @@
+﻿@model DoAnNhom08LTW.Models.ViewModels.ProfileViewModel
+@{
+    ViewData["Title"] = "Hồ sơ cá nhân";
+    Layout = "~/Views/Shared/_Layout_user.cshtml";
+}
+
+<style>
+    .profile-container {
+        max-width: 850px;
+        margin: 40px auto;
+        padding: 0 15px;
+    }
+
+    .profile-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        padding: 30px;
+        margin-bottom: 25px;
+    }
+
+    .profile-title {
+        color: #DB4444;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #333;
+            font-size: 14px;
+        }
+
+    .form-control {
+        padding: 11px 14px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 15px;
+        background: #F5F5F5;
+    }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #DB4444;
+            background: #fff;
+        }
+
+        .form-control[readonly] {
+            background: #e9ecef;
+            color: #6c757d;
+            cursor: not-allowed;
+        }
+
+    .btn-save {
+        background: #DB4444;
+        color: #fff;
+        border: none;
+        padding: 11px 28px;
+        border-radius: 6px;
+        font-size: 15px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+        .btn-save:hover {
+            background: #c03939;
+        }
+
+    .alert-box {
+        padding: 14px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+
+    .alert-success {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
+    .alert-danger {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+</style>
+
+<div class="profile-container">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert-box alert-success">@TempData["SuccessMessage"]</div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert-box alert-danger">@TempData["ErrorMessage"]</div>
+    }
+
+    <!-- Form cập nhật thông tin -->
+    <div class="profile-card">
+        <h2 class="profile-title">Thông tin tài khoản</h2>
+        <form asp-controller="Account" asp-action="UpdateProfile" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-grid">
+                <div class="form-group">
+                    <label asp-for="MaTaiKhoan"></label>
+                    <input asp-for="MaTaiKhoan" class="form-control" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="HoTen"></label>
+                    <input asp-for="HoTen" class="form-control" />
+                    <span asp-validation-for="HoTen" style="color:#DB4444; font-size:13px;"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="SoDienThoai"></label>
+                    <input asp-for="SoDienThoai" class="form-control" placeholder="Nhập số điện thoại" />
+                    <span asp-validation-for="SoDienThoai" style="color:#DB4444; font-size:13px;"></span>
+                </div>
+            </div>
+            <div style="text-align: right;">
+                <button type="submit" class="btn-save">Lưu thay đổi</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Form đổi mật khẩu -->
+    <div class="profile-card">
+        <h2 class="profile-title">Đổi mật khẩu</h2>
+        <form asp-controller="Account" asp-action="ChangePassword" method="post">
+            <div class="form-grid">
+                <div class="form-group full-width">
+                    <label>Mật khẩu hiện tại</label>
+                    <input type="password" name="OldPassword" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Mật khẩu mới</label>
+                    <input type="password" name="NewPassword" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Xác nhận mật khẩu mới</label>
+                    <input type="password" name="ConfirmPassword" class="form-control" required />
+                </div>
+            </div>
+            <div style="text-align: right;">
+                <button type="submit" class="btn-save">Cập nhật mật khẩu</button>
+            </div>
+        </form>
+    </div>
+</div>

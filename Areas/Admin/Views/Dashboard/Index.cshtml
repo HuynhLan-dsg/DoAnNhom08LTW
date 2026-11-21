@@ -1,0 +1,139 @@
+﻿@{
+    ViewData["Title"] = "Bảng điều khiển (Dashboard)";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_admin.cshtml";
+}
+
+<style>
+    .stat-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-left: 4px solid #DB4444;
+    }
+
+    .stat-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+    }
+
+    .table-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        margin-top: 25px;
+    }
+</style>
+
+<!-- 4 Thẻ thống kê -->
+<div class="row g-4">
+    <div class="col-md-6 col-xl-3">
+        <div class="stat-card" style="border-left-color: #DB4444;">
+            <div>
+                <p class="text-muted mb-1 fw-medium" style="font-size: 14px;">Tổng doanh thu</p>
+                <h4 class="fw-bold mb-0 text-dark">42.190.000 ₫</h4>
+            </div>
+            <div class="stat-icon" style="background: rgba(219, 68, 68, 0.1); color: #DB4444;">
+                <i class="bi bi-currency-dollar"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+        <div class="stat-card" style="border-left-color: #2563eb;">
+            <div>
+                <p class="text-muted mb-1 fw-medium" style="font-size: 14px;">Tổng đơn hàng</p>
+                <h4 class="fw-bold mb-0 text-dark">20</h4>
+            </div>
+            <div class="stat-icon" style="background: rgba(37, 99, 235, 0.1); color: #2563eb;">
+                <i class="bi bi-cart-check"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+        <div class="stat-card" style="border-left-color: #16a34a;">
+            <div>
+                <p class="text-muted mb-1 fw-medium" style="font-size: 14px;">Sản phẩm đang bán</p>
+                <h4 class="fw-bold mb-0 text-dark">19</h4>
+            </div>
+            <div class="stat-icon" style="background: rgba(22, 163, 74, 0.1); color: #16a34a;">
+                <i class="bi bi-box-seam"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+        <div class="stat-card" style="border-left-color: #d97706;">
+            <div>
+                <p class="text-muted mb-1 fw-medium" style="font-size: 14px;">Tài khoản khách hàng</p>
+                <h4 class="fw-bold mb-0 text-dark">19</h4>
+            </div>
+            <div class="stat-icon" style="background: rgba(217, 119, 6, 0.1); color: #d97706;">
+                <i class="bi bi-people"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bảng lối tắt nhanh / Đơn hàng mới nhất -->
+<div class="table-card">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="fw-bold mb-0">Trạng thái hệ thống & Đơn hàng gần đây</h5>
+        <a asp-area="Admin" asp-controller="Order" asp-action="Index" class="btn btn-sm btn-outline-danger">
+            Xem tất cả đơn hàng
+        </a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>Mã đơn</th>
+                    <th>Khách hàng</th>
+                    <th>Ngày đặt</th>
+                    <th>Tổng tiền</th>
+                    <th>Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="fw-semibold">DH0020</td>
+                    <td>Nguyễn Văn An</td>
+                    <td>11/11/2026</td>
+                    <td class="fw-semibold text-danger">7.470.000 ₫</td>
+                    <td><span class="badge bg-danger">Đã hủy</span></td>
+                </tr>
+                <tr>
+                    <td class="fw-semibold">DH0019</td>
+                    <td>Cao Nhật Minh</td>
+                    <td>09/11/2026</td>
+                    <td class="fw-semibold text-danger">2.780.000 ₫</td>
+                    <td><span class="badge bg-warning text-dark">Chờ xác nhận</span></td>
+                </tr>
+                <tr>
+                    <td class="fw-semibold">DH0018</td>
+                    <td>Đinh Mỹ Duyên</td>
+                    <td>07/11/2026</td>
+                    <td class="fw-semibold text-danger">1.490.000 ₫</td>
+                    <td><span class="badge bg-warning text-dark">Chờ xác nhận</span></td>
+                </tr>
+                <tr>
+                    <td class="fw-semibold">DH0017</td>
+                    <td>Vũ Hoàng Long</td>
+                    <td>05/11/2026</td>
+                    <td class="fw-semibold text-danger">1.170.000 ₫</td>
+                    <td><span class="badge bg-info text-dark">Đã xác nhận</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+﻿@model DoAnNhom08LTW.Models.ViewModels.LoginViewModel
+<section class="section">
+    <div class="auth_container">
+        <div class="auth_img">
+            <img src="~/user/image/auth-image.png" alt="" class="auth_image" />
+        </div>
+        <div class="auth_content">
+            <form asp-action="Login" asp-controller="Account" method="post" class="auth_form">
+                <h2 class="form_title">Login to your account</h2>
+                <p class="auth_p">Enter your details below</p>
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger">
+                </div>
+                <div class="form_group">
+                    <input type="email" asp-for="Email" placeholder="Email" class="form_input" />
+                    <span asp-validation-for="Email"
+                          class="text-danger">
+                    </span>
+                </div>
+                <div class="form_group form_pass">
+                    <input type="password"
+                        asp-for="Password"
+                           placeholder="Password"
+                           class="form_input" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form_group">
+                    <button type="submit"
+                            class="form_btn">
+                        Login
+                    </button>
+                </div>
+                <div class="form_group">
+                    <span>
+                        Don't have an account?
+                        <a asp-action="Register" asp-controller="Account" class="form_auth_link">Reegister</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

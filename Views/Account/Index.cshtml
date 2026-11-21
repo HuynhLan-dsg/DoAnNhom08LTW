@@ -1,0 +1,115 @@
+﻿@model IEnumerable<DoAnNhom08LTW.Models.TaiKhoan>
+@using System.Security.Claims
+@{
+    ViewData["Title"] = "Quản lý tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_admin.cshtml";
+    int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int currentAdminId);
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle me-2"></i>@TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle me-2"></i>@TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="card border-0 shadow-sm rounded-3">
+    <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+        <h5 class="mb-0 fw-bold text-dark">Danh sách tài khoản hệ thống (@Model.Count())</h5>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-4">Mã TK</th>
+                        <th>Họ tên</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Vai trò</th>
+                        <th>Trạng thái</th>
+                        <th>Ngày tạo</th>
+                        <th class="text-end pe-4">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        bool isSelf = item.Id == currentAdminId;
+                        <tr>
+                            <td class="ps-4 fw-semibold">@item.MaTaiKhoan</td>
+                            <td>
+                                <div class="fw-medium text-dark">@item.HoTen</div>
+                                @if (isSelf)
+                                {
+                                    <span class="badge bg-secondary" style="font-size: 11px;">Bạn</span>
+                                }
+                            </td>
+                            <td>@item.Email</td>
+                            <td>@(string.IsNullOrEmpty(item.SoDienThoai) ? "—" : item.SoDienThoai)</td>
+                            <td>
+                                <!-- Form đổi quyền nhanh -->
+                                <form asp-controller="Account" asp-action="ChangeRole" method="post" class="d-inline">
+                                    <input type="hidden" name="id" value="@item.Id" />
+                                    <select name="newRole" class="form-select form-select-sm d-inline-block w-auto"
+                                            onchange="this.form.submit()" @(isSelf ? "disabled" : "")>
+                                        <option value="KhachHang" selected="@(item.VaiTro == "KhachHang")">Khách hàng</option>
+                                        <option value="Admin" selected="@(item.VaiTro == "Admin")">Admin</option>
+                                    </select>
+                                </form>
+                            </td>
+                            <td>
+                                @if (item.DangHoatDong)
+                                {
+                                    <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                        <i class="bi bi-unlock me-1"></i>Hoạt động
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger-subtle text-danger border border-danger-subtle">
+                                        <i class="bi bi-lock me-1"></i>Đã khóa
+                                    </span>
+                                }
+                            </td>
+                            <td>@item.NgayTao.ToString("dd/MM/yyyy")</td>
+                            <td class="text-end pe-4">
+                                @if (!isSelf)
+                                {
+                                    <form asp-controller="Account" asp-action="ToggleStatus" method="post" class="d-inline"
+                                          onsubmit="return confirm('Bạn có chắc muốn @(item.DangHoatDong ? "khóa" : "mở khóa") tài khoản @item.Email không?');">
+                                        <input type="hidden" name="id" value="@item.Id" />
+                                        @if (item.DangHoatDong)
+                                        {
+                                            <button type="submit" class="btn btn-sm btn-outline-danger" title="Khóa tài khoản">
+                                                <i class="bi bi-lock-fill"></i> Khóa
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <button type="submit" class="btn btn-sm btn-outline-success" title="Mở khóa tài khoản">
+                                                <i class="bi bi-unlock-fill"></i> Mở khóa
+                                            </button>
+                                        }
+                                    </form>
+                                }
+                                else
+                                {
+                                    <span class="text-muted small fst-italic">Đang đăng nhập</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

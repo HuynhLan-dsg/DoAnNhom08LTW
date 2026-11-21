@@ -1,0 +1,163 @@
+﻿<style>
+    /* Thêm đoạn này để đưa toàn bộ thanh nav nổi lên trên cùng */
+    .nav {
+        position: relative;
+        z-index: 9999;
+        overflow: visible !important;
+    }
+
+    .user_dropdown {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .user_dropdown_toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        padding: 5px 0; /* Tăng vùng đệm để dễ rê chuột */
+    }
+
+    .user_avatar {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #DB4444;
+    }
+
+    .user_dropdown_menu {
+        position: absolute;
+        top: 100%; /* Sát ngay dưới toggle để tránh mất hover khi di chuột */
+        right: 0;
+        width: 220px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0,0,0,.15);
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(5px);
+        transition: 0.2s ease;
+        z-index: 999999;
+    }
+
+    .user_dropdown:hover .user_dropdown_menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .dropdown_item {
+        display: block;
+        padding: 12px 16px;
+        text-decoration: none;
+        color: #333;
+    }
+
+        .dropdown_item:hover {
+            background: #f5f5f5;
+        }
+
+    .logout {
+        color: #DB4444;
+    }
+</style>
+<div class="top_nav">
+    <div class="container top_nav_container">
+        <div class="top_nav_wrapper">
+            <p class="tap_nav_p">
+                Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
+            </p>
+            <a href="#" class="top_nav_link">SHOP NOW</a>
+        </div>
+    </div>
+</div>
+<nav class="nav">
+    <div class="container nav_container">
+        <a href="#" class="nav_logo">EXCLUSIVE</a>
+        <ul class="nav_list">
+            <li class="nav_item"><a href="/" class="nav_link">Home</a></li>
+            <li class="nav_item"><a href="#" class="nav_link">About</a></li>
+            <li class="nav_item"><a href="#" class="nav_link">Contact</a></li>
+            
+        </ul>
+        <div class="nav_items">
+            <form action="#" class="nav_form">
+                <input type="text"
+                       class="nav_input"
+                       placeholder="search here...." />
+                <img src="~/user/image/search.png" alt="" class="nav_search" />
+            </form>
+            <img src="~/user/image/heart.png" alt="" class="nav_heart" />
+            <a asp-action="Index" asp-controller="Cart">
+                <img src="~/user/image/cart.png" alt="" class="nav_cart" />
+            </a>
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <div class="user_dropdown">
+
+                    <div class="user_dropdown_toggle">
+                        <img src="~/user/image/icons/avatar.jpg"
+                             class="user_avatar" />
+
+                        <span class="user_name">
+                            @User.Identity.Name
+                        </span>
+                    </div>
+
+                    <div class="user_dropdown_menu">
+
+                        <a asp-controller="Account"
+                           asp-action="Profile"
+                           class="dropdown_item">
+                            Hồ sơ cá nhân
+                        </a>
+
+                        <a asp-controller="Order"
+                           asp-action="Index"
+                           class="dropdown_item">
+                            Đơn hàng của tôi
+                        </a>
+
+                        <a asp-controller="Account"
+                           asp-action="Logout"
+                           class="dropdown_item logout">
+                            Đăng xuất
+                        </a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="dropdown_item" style="font-weight: 600; color: #DB4444;">
+                                Trang quản trị (Admin)
+                            </a>
+                        }
+
+                    </div>
+
+                </div>
+            }
+            else
+            {
+                <a asp-action="Login"
+                   asp-controller="Account"
+                   class="nav_link">
+                    Đăng nhập
+                </a>
+            }
+        </div>
+        <span class="hamburger">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke-width="1.5"
+                 stroke="currentColor"
+                 class="w-6 h-6">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </span>
+    </div>
+</nav>

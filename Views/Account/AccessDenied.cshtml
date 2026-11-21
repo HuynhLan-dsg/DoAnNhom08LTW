@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Từ chối truy cập";
+    Layout = "~/Views/Shared/_Layout_user.cshtml";
+}
+
+<div style="max-width: 600px; margin: 80px auto; text-align: center; padding: 40px 20px; background: #fff; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+    <h1 style="font-size: 72px; color: #DB4444; margin: 0;">403</h1>
+    <h2 style="margin: 15px 0; color: #333;">Bạn không có quyền truy cập trang này</h2>
+    <p style="color: #666; margin-bottom: 30px;">
+        Tài khoản của bạn không được cấp quyền quản trị viên (Admin) để thực hiện chức năng này.
+    </p>
+    <a asp-controller="Home" asp-action="Index"
+       style="background: #DB4444; color: #fff; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 500;">
+        Quay về trang chủ
+    </a>
+</div>
