@@ -88,7 +88,7 @@ namespace DoAnNhom08LTW.Areas.Admin.Controllers
                 return View(model);
             }
 
-            _logger.LogInformation("Admin đã cập nhật danh mục ID {CategoryId}.", model.Id);
+            _logger.LogInformation("Admin đã cập nhật danh mục {CategoryId}.", model.Id);
             TempData["SuccessMessage"] = message;
             return RedirectToAction(nameof(Index));
         }
@@ -100,7 +100,7 @@ namespace DoAnNhom08LTW.Areas.Admin.Controllers
             var (success, message) = await _categoryService.DeleteAsync(id);
             if (success)
             {
-                _logger.LogInformation("Admin đã xóa danh mục ID {CategoryId}.", id);
+                _logger.LogInformation("Admin đã xóa danh mục {CategoryId}.", id);
                 TempData["SuccessMessage"] = message;
             }
             else
@@ -118,7 +118,7 @@ namespace DoAnNhom08LTW.Areas.Admin.Controllers
             var (success, message) = await _categoryService.ToggleStatusAsync(id);
             if (success)
             {
-                _logger.LogInformation("Admin đã đổi trạng thái danh mục ID {CategoryId}.", id);
+                _logger.LogInformation("Admin đã đổi trạng thái danh mục {CategoryId}.", id);
                 TempData["SuccessMessage"] = message;
             }
             else

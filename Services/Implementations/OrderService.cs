@@ -34,12 +34,12 @@ namespace DoAnNhom08LTW.Services.Implementations
             var order = await _orderRepository.GetByIdAsync(id);
             if (order == null)
             {
-                return (false, "Không tìm thấy đơn hàng.");
+                return (false, "Không tìm thấy đơn hàng");
             }
 
             if (!OrderStatusHelper.CanConfirm(order.TrangThai))
             {
-                return (false, $"Chỉ có thể xác nhận đơn hàng đang ở trạng thái \"Chờ xác nhận\" (hiện tại: {OrderStatusHelper.GetDisplayName(order.TrangThai)}).");
+                return (false, $"Chỉ xác nhận đơn hàng đang ở trạng thái \"Chờ xác nhận\" (hiện tại: {OrderStatusHelper.GetDisplayName(order.TrangThai)})");
             }
 
             order.TrangThai = OrderStatusHelper.FormatForStorage(order.TrangThai, OrderStatusHelper.DaXacNhan);
@@ -53,7 +53,7 @@ namespace DoAnNhom08LTW.Services.Implementations
             var order = await _orderRepository.GetByIdWithDetailsAsync(id);
             if (order == null)
             {
-                return (false, "Không tìm thấy đơn hàng.");
+                return (false, "Không tìm thấy đơn hàng");
             }
 
             if (!OrderStatusHelper.CanCancel(order.TrangThai))
@@ -78,7 +78,7 @@ namespace DoAnNhom08LTW.Services.Implementations
             }
 
             await _orderRepository.UpdateAsync(order);
-            return (true, $"Đã hủy đơn hàng {order.MaDonHang} và hoàn lại tồn kho sản phẩm thành công!");
+            return (true, $"Đã hủy đơn hàng {order.MaDonHang} và hoàn lại tồn kho thành công");
         }
 
         public async Task<(bool success, string message)> UpdateDeliveryStatusAsync(int id, string newStatus)
@@ -86,13 +86,13 @@ namespace DoAnNhom08LTW.Services.Implementations
             var normalizedTarget = OrderStatusHelper.Normalize(newStatus);
             if (!OrderStatusHelper.AllStatuses.Contains(normalizedTarget))
             {
-                return (false, "Trạng thái đơn hàng không hợp lệ.");
+                return (false, "Trạng thái đơn hàng không hợp lệ");
             }
 
             var order = await _orderRepository.GetByIdWithDetailsAsync(id);
             if (order == null)
             {
-                return (false, "Không tìm thấy đơn hàng.");
+                return (false, "Không tìm thấy đơn hàng");
             }
 
             if (!OrderStatusHelper.IsValidTransition(order.TrangThai, normalizedTarget))

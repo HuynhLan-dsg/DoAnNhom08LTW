@@ -68,7 +68,7 @@ namespace DoAnNhom08LTW.Services.Implementations
             await _promotionRepository.AddAsync(entity);
             await _promotionRepository.SaveAsync();
 
-            return (true, $"Thêm khuyến mãi \"{entity.TenKhuyenMai}\" thành công!");
+            return (true, $"Thêm khuyến mãi \"{entity.TenKhuyenMai}\" thành công");
         }
 
         public async Task<(bool success, string message)> UpdateAsync(PromotionFormViewModel model)
@@ -76,7 +76,7 @@ namespace DoAnNhom08LTW.Services.Implementations
             var existing = await _promotionRepository.GetByIdAsync(model.Id);
             if (existing == null)
             {
-                return (false, "Không tìm thấy chương trình khuyến mãi.");
+                return (false, "Không tìm thấy chương trình khuyến mãi");
             }
 
             var validationError = ValidatePromotion(model);
@@ -93,7 +93,7 @@ namespace DoAnNhom08LTW.Services.Implementations
             existing.TrangThai = model.TrangThai;
 
             await _promotionRepository.UpdateAsync(existing);
-            return (true, $"Cập nhật khuyến mãi \"{existing.TenKhuyenMai}\" thành công!");
+            return (true, $"Cập nhật khuyến mãi \"{existing.TenKhuyenMai}\" thành công");
         }
 
         public async Task<(bool success, string message)> DeleteAsync(int id)
@@ -101,13 +101,13 @@ namespace DoAnNhom08LTW.Services.Implementations
             var existing = await _promotionRepository.GetByIdAsync(id);
             if (existing == null)
             {
-                return (false, "Không tìm thấy chương trình khuyến mãi cần xóa.");
+                return (false, "Không tìm thấy chương trình khuyến mãi cần xóa");
             }
 
             await _promotionRepository.DetachProductsAsync(id);
             await _promotionRepository.DeleteAsync(existing);
 
-            return (true, $"Đã xóa chương trình khuyến mãi \"{existing.TenKhuyenMai}\" thành công!");
+            return (true, $"Đã xóa chương trình khuyến mãi \"{existing.TenKhuyenMai}\" thành công");
         }
 
         public async Task<(bool success, string message)> ToggleStatusAsync(int id)
@@ -115,37 +115,37 @@ namespace DoAnNhom08LTW.Services.Implementations
             var existing = await _promotionRepository.GetByIdAsync(id);
             if (existing == null)
             {
-                return (false, "Không tìm thấy chương trình khuyến mãi.");
+                return (false, "Không tìm thấy chương trình khuyến mãi");
             }
 
             existing.TrangThai = !existing.TrangThai;
             await _promotionRepository.UpdateAsync(existing);
 
             var statusText = existing.TrangThai ? "kích hoạt" : "tạm tắt";
-            return (true, $"Đã {statusText} khuyến mãi \"{existing.TenKhuyenMai}\" thành công!");
+            return (true, $"Đã {statusText} khuyến mãi \"{existing.TenKhuyenMai}\" thành công");
         }
 
         private static string? ValidatePromotion(PromotionFormViewModel model)
         {
             if (model.NgayKetThuc < model.NgayBatDau)
             {
-                return "Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu.";
+                return "Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu";
             }
 
             if (model.GiaTriGiam <= 0)
             {
-                return "Giá trị giảm phải lớn hơn 0.";
+                return "Giá trị giảm phải lớn hơn 0";
             }
 
             var normalizedType = PromotionHelper.NormalizeType(model.LoaiGiam);
             if (normalizedType != PromotionHelper.PhanTram && normalizedType != PromotionHelper.SoTien)
             {
-                return "Loại giảm giá không hợp lệ.";
+                return "Loại giảm giá không hợp lệ";
             }
 
             if (normalizedType == PromotionHelper.PhanTram && model.GiaTriGiam > 100)
             {
-                return "Giá trị giảm theo phần trăm phải nằm trong khoảng 0% đến 100%.";
+                return "Giá trị giảm theo phần trăm phải nằm trong khoảng 0% đến 100%";
             }
 
             return null;

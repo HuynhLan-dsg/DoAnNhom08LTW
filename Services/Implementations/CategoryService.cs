@@ -53,7 +53,7 @@ namespace DoAnNhom08LTW.Services.Implementations
             var tenDanhMuc = model.TenDanhMuc.Trim();
             if (await _categoryRepository.ExistsByNameAsync(tenDanhMuc))
             {
-                return (false, $"Danh mục \"{tenDanhMuc}\" đã tồn tại trong hệ thống.");
+                return (false, $"Danh mục \"{tenDanhMuc}\" đã tồn tại");
             }
 
             var (uploadOk, imagePath, uploadError) = await SaveImageIfProvidedAsync(model.HinhAnhFile, model.HinhAnh, webRootPath);
@@ -86,7 +86,7 @@ namespace DoAnNhom08LTW.Services.Implementations
             var tenDanhMuc = model.TenDanhMuc.Trim();
             if (await _categoryRepository.ExistsByNameAsync(tenDanhMuc, model.Id))
             {
-                return (false, $"Tên danh mục \"{tenDanhMuc}\" đã được sử dụng bởi danh mục khác.");
+                return (false, $"Tên danh mục \"{tenDanhMuc}\" đã được sử dụng bởi danh mục khác");
             }
 
             var (uploadOk, imagePath, uploadError) = await SaveImageIfProvidedAsync(model.HinhAnhFile, model.HinhAnh ?? existing.HinhAnh, webRootPath);
@@ -101,7 +101,7 @@ namespace DoAnNhom08LTW.Services.Implementations
 
             await _categoryRepository.UpdateAsync(existing);
 
-            return (true, $"Cập nhật danh mục \"{existing.TenDanhMuc}\" thành công!");
+            return (true, $"Cập nhật danh mục \"{existing.TenDanhMuc}\" thành công");
         }
 
         public async Task<(bool success, string message)> DeleteAsync(int id)
@@ -109,16 +109,16 @@ namespace DoAnNhom08LTW.Services.Implementations
             var existing = await _categoryRepository.GetByIdAsync(id);
             if (existing == null)
             {
-                return (false, "Không tìm thấy danh mục cần xóa.");
+                return (false, "Không tìm thấy danh mục cần xóa");
             }
 
             if (await _categoryRepository.HasProductsAsync(id))
             {
-                return (false, $"Không thể xóa danh mục \"{existing.TenDanhMuc}\" vì đang có sản phẩm thuộc danh mục này. Bạn có thể chuyển sang trạng thái tạm ẩn.");
+                return (false, $"Không thể xóa danh mục \"{existing.TenDanhMuc}\" vì có sản phẩm, có thể chuyển trạng thái tạm ẩn");
             }
 
             await _categoryRepository.DeleteAsync(existing);
-            return (true, $"Đã xóa danh mục \"{existing.TenDanhMuc}\" thành công!");
+            return (true, $"Đã xóa danh mục \"{existing.TenDanhMuc}\" thành công");
         }
 
         public async Task<(bool success, string message)> ToggleStatusAsync(int id)
@@ -133,7 +133,7 @@ namespace DoAnNhom08LTW.Services.Implementations
             await _categoryRepository.UpdateAsync(existing);
 
             var statusText = existing.DangHoatDong ? "kích hoạt" : "tạm ẩn";
-            return (true, $"Đã {statusText} danh mục \"{existing.TenDanhMuc}\" thành công!");
+            return (true, $"Đã {statusText} danh mục \"{existing.TenDanhMuc}\" thành công");
         }
 
         private static async Task<(bool ok, string? path, string error)> SaveImageIfProvidedAsync(
@@ -148,13 +148,13 @@ namespace DoAnNhom08LTW.Services.Implementations
 
             if (file.Length > MaxImageBytes)
             {
-                return (false, null, "Kích thước hình ảnh vượt quá giới hạn 5MB.");
+                return (false, null, "Kích thước hình ảnh vượt quá giới hạn");
             }
 
             var ext = Path.GetExtension(file.FileName).ToLowerInvariant();
             if (!AllowedImageExtensions.Contains(ext))
             {
-                return (false, null, "Chỉ hỗ trợ định dạng ảnh: .jpg, .jpeg, .png, .webp, .gif.");
+                return (false, null, "Chỉ hỗ trợ định dạng ảnh: .jpg, .jpeg, .png, .webp, .gif");
             }
 
             var folder = Path.Combine(webRootPath, "images", "danhmuc");

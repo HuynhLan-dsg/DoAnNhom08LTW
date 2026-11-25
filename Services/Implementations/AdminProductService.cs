@@ -66,7 +66,7 @@ namespace DoAnNhom08LTW.Services.Implementations
             var category = await _categoryRepository.GetByIdAsync(model.MaDanhMucId);
             if (category == null)
             {
-                return (false, "Danh mục được chọn không tồn tại.");
+                return (false, "Danh mục được chọn không tồn tại");
             }
 
             if (model.MaKhuyenMaiId.HasValue)
@@ -74,7 +74,7 @@ namespace DoAnNhom08LTW.Services.Implementations
                 var promo = await _promotionRepository.GetByIdAsync(model.MaKhuyenMaiId.Value);
                 if (promo == null)
                 {
-                    return (false, "Chương trình khuyến mãi được chọn không tồn tại.");
+                    return (false, "Chương trình khuyến mãi được chọn không tồn tại");
                 }
             }
 
@@ -101,7 +101,7 @@ namespace DoAnNhom08LTW.Services.Implementations
             await _productRepository.AddAsync(entity);
             await _productRepository.SaveAsync();
 
-            return (true, $"Thêm sản phẩm \"{entity.TenSanPham}\" thành công!");
+            return (true, $"Thêm sản phẩm \"{entity.TenSanPham}\" thành công");
         }
 
         public async Task<(bool success, string message)> UpdateAsync(ProductFormViewModel model, string webRootPath)
@@ -109,13 +109,13 @@ namespace DoAnNhom08LTW.Services.Implementations
             var existing = await _productRepository.GetByIdAsync(model.Id);
             if (existing == null)
             {
-                return (false, "Không tìm thấy sản phẩm cần cập nhật.");
+                return (false, "Không tìm thấy sản phẩm cần cập nhật");
             }
 
             var category = await _categoryRepository.GetByIdAsync(model.MaDanhMucId);
             if (category == null)
             {
-                return (false, "Danh mục được chọn không tồn tại.");
+                return (false, "Danh mục được chọn không tồn tại");
             }
 
             if (model.MaKhuyenMaiId.HasValue)
@@ -123,7 +123,7 @@ namespace DoAnNhom08LTW.Services.Implementations
                 var promo = await _promotionRepository.GetByIdAsync(model.MaKhuyenMaiId.Value);
                 if (promo == null)
                 {
-                    return (false, "Chương trình khuyến mãi được chọn không tồn tại.");
+                    return (false, "Chương trình khuyến mãi được chọn không tồn tại");
                 }
             }
 
@@ -148,7 +148,7 @@ namespace DoAnNhom08LTW.Services.Implementations
             existing.DangBan = model.DangBan;
 
             await _productRepository.UpdateAsync(existing);
-            return (true, $"Cập nhật sản phẩm \"{existing.TenSanPham}\" thành công!");
+            return (true, $"Cập nhật sản phẩm \"{existing.TenSanPham}\" thành công");
         }
 
         public async Task<(bool success, string message)> SoftDeleteAsync(int id)
@@ -156,17 +156,17 @@ namespace DoAnNhom08LTW.Services.Implementations
             var existing = await _productRepository.GetByIdAsync(id);
             if (existing == null)
             {
-                return (false, "Không tìm thấy sản phẩm.");
+                return (false, "Không tìm thấy sản phẩm");
             }
 
             if (!existing.DangBan)
             {
-                return (false, $"Sản phẩm \"{existing.TenSanPham}\" đã ở trạng thái ngừng bán.");
+                return (false, $"Sản phẩm \"{existing.TenSanPham}\" đã ở trạng thái ngừng bán");
             }
 
             existing.DangBan = false;
             await _productRepository.UpdateAsync(existing);
-            return (true, $"Đã xóa mềm (ngừng bán) sản phẩm \"{existing.TenSanPham}\" thành công!");
+            return (true, $"Đã xóa mềm (ngừng bán) sản phẩm \"{existing.TenSanPham}\" thành công");
         }
 
         public async Task<(bool success, string message)> RestoreAsync(int id)
@@ -174,25 +174,25 @@ namespace DoAnNhom08LTW.Services.Implementations
             var existing = await _productRepository.GetByIdAsync(id);
             if (existing == null)
             {
-                return (false, "Không tìm thấy sản phẩm.");
+                return (false, "Không tìm thấy sản phẩm");
             }
 
             existing.DangBan = true;
             await _productRepository.UpdateAsync(existing);
-            return (true, $"Đã mở bán lại sản phẩm \"{existing.TenSanPham}\" thành công!");
+            return (true, $"Đã mở bán lại sản phẩm \"{existing.TenSanPham}\" thành công");
         }
 
         public async Task<(bool success, string message)> UpdateStockAsync(int id, int newQuantity)
         {
             if (newQuantity < 0)
             {
-                return (false, "Số lượng tồn kho không được nhỏ hơn 0.");
+                return (false, "Số lượng tồn kho không được nhỏ hơn 0");
             }
 
             var existing = await _productRepository.GetByIdAsync(id);
             if (existing == null)
             {
-                return (false, "Không tìm thấy sản phẩm.");
+                return (false, "Không tìm thấy sản phẩm");
             }
 
             existing.SoLuongTon = newQuantity;
@@ -212,7 +212,7 @@ namespace DoAnNhom08LTW.Services.Implementations
 
             if (file.Length > MaxImageBytes)
             {
-                return (false, null, "Kích thước hình ảnh vượt quá giới hạn 5MB.");
+                return (false, null, "Kích thước hình ảnh vượt quá giới hạn");
             }
 
             var ext = Path.GetExtension(file.FileName).ToLowerInvariant();

@@ -33,7 +33,7 @@ namespace DoAnNhom08LTW.ViewComponents
                 items.Add(new NotificationItemViewModel
                 {
                     Title = "Đơn hàng chờ xác nhận",
-                    Message = $"Hiện có {pendingOrders} đơn hàng mới đang chờ quản trị viên xác nhận.",
+                    Message = $"Hiện có {pendingOrders} đơn hàng mới đang chờ xác nhận",
                     BadgeText = $"{pendingOrders} đơn",
                     BadgeClass = "bg-warning text-dark",
                     IconClass = "bi-bag-check text-warning",
@@ -49,7 +49,7 @@ namespace DoAnNhom08LTW.ViewComponents
                 items.Add(new NotificationItemViewModel
                 {
                     Title = "Cảnh báo tồn kho thấp",
-                    Message = $"Có {lowStockCount} sản phẩm đang bán có số lượng tồn kho từ 10 trở xuống.",
+                    Message = $"Có {lowStockCount} sản phẩm đang bán có số lượng tồn kho thấp",
                     BadgeText = $"{lowStockCount} SP",
                     BadgeClass = "bg-danger",
                     IconClass = "bi-exclamation-triangle text-danger",
@@ -69,7 +69,7 @@ namespace DoAnNhom08LTW.ViewComponents
                 items.Add(new NotificationItemViewModel
                 {
                     Title = "Khuyến mãi sắp hết hạn",
-                    Message = $"Có {expiringPromos} chương trình khuyến mãi sẽ kết thúc trong 7 ngày tới.",
+                    Message = $"Có {expiringPromos} chương trình khuyến mãi sẽ kết thúc trong 7 ngày tới",
                     BadgeText = $"{expiringPromos} KM",
                     BadgeClass = "bg-info text-dark",
                     IconClass = "bi-clock-history text-info",

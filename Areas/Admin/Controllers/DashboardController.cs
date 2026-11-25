@@ -25,7 +25,7 @@ namespace DoAnNhom08LTW.Areas.Admin.Controllers
         public async Task<IActionResult> Index(int? year)
         {
             var model = await _dashboardService.GetDashboardDataAsync(year);
-            _logger.LogInformation("Admin truy cập Dashboard thống kê năm {Year}.", model.NamThongKe);
+            _logger.LogInformation("Admin truy cập Dashboard thống kê năm {Year}", model.NamThongKe);
             return View(model);
         }
 
