@@ -50,6 +50,7 @@ namespace DoAnNhom08LTW.Repositories.Implementations
                 {
                     "out" => query.Where(p => p.SoLuongTon == 0),
                     "low" => query.Where(p => p.SoLuongTon > 0 && p.SoLuongTon <= 10),
+                    "alert" => query.Where(p => p.SoLuongTon <= 10),
                     "in" => query.Where(p => p.SoLuongTon > 10),
                     _ => query
                 };

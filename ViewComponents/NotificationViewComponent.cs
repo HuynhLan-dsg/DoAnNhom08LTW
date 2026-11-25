@@ -56,7 +56,11 @@ namespace DoAnNhom08LTW.ViewComponents
                     Area = "Admin",
                     Controller = "Product",
                     Action = "Index",
-                    RouteValues = new Dictionary<string, string> { ["stockFilter"] = "low" }
+                    RouteValues = new Dictionary<string, string>
+                    {
+                        ["dangBan"] = "true",
+                        ["stockFilter"] = "alert"
+                    }
                 });
             }
 
@@ -71,7 +75,8 @@ namespace DoAnNhom08LTW.ViewComponents
                     IconClass = "bi-clock-history text-info",
                     Area = "Admin",
                     Controller = "Promotion",
-                    Action = "Index"
+                    Action = "Index",
+                    RouteValues = new Dictionary<string, string> { ["trangThai"] = "true" }
                 });
             }
 

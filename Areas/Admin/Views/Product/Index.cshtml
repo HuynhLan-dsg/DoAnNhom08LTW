@@ -57,6 +57,7 @@
             <div class="col-md-2">
                 <select name="stockFilter" class="form-select form-select-sm">
                     <option value="">-- Tình trạng kho --</option>
+                    <option value="alert" selected="@(stockFilter == "alert")">Cần nhập hàng (0 - 10)</option>
                     <option value="out" selected="@(stockFilter == "out")">Hết hàng (0)</option>
                     <option value="low" selected="@(stockFilter == "low")">Sắp hết (1 - 10)</option>
                     <option value="in" selected="@(stockFilter == "in")">Còn nhiều (&gt; 10)</option>
