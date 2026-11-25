@@ -27,6 +27,20 @@ namespace DoAnNhom08LTW
                 IAccountService,
                 AccountService>();
 
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
+
+            builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+            builder.Services.AddScoped<IOrderService, OrderService>();
+
+            builder.Services.AddScoped<IAdminProductRepository, AdminProductRepository>();
+            builder.Services.AddScoped<IAdminProductService, AdminProductService>();
+
+            builder.Services.AddScoped<IPromotionRepository, PromotionRepository>();
+            builder.Services.AddScoped<IPromotionService, PromotionService>();
+
+            builder.Services.AddScoped<IDashboardService, DashboardService>();
+
             //đăng ký cho DbContext
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn")));
 
