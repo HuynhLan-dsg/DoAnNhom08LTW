@@ -1,6 +1,16 @@
-﻿@{
+@model DoAnNhom08LTW.Models.ViewModels.Admin.DashboardViewModel
+@using System.Globalization
+@using System.Text.Json
+@using DoAnNhom08LTW.Models.ViewModels.Admin
+@{
     ViewData["Title"] = "Bảng điều khiển (Dashboard)";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_admin.cshtml";
+    var viCulture = CultureInfo.GetCultureInfo("vi-VN");
+    var monthlyLabelsJson = JsonSerializer.Serialize(Model.DoanhThuTheoThang.Select(m => $"Tháng {m.Thang}"));
+    var monthlyRevenueJson = JsonSerializer.Serialize(Model.DoanhThuTheoThang.Select(m => m.DoanhThu));
+    var monthlyOrdersJson = JsonSerializer.Serialize(Model.DoanhThuTheoThang.Select(m => m.SoDonHang));
+    var totalYearRevenue = Model.DoanhThuTheoThang.Sum(m => m.DoanhThu);
+    var totalYearOrders = Model.DoanhThuTheoThang.Sum(m => m.SoDonHang);
 }
 
 <style>
@@ -40,7 +50,7 @@
         <div class="stat-card" style="border-left-color: #DB4444;">
             <div>
                 <p class="text-muted mb-1 fw-medium" style="font-size: 14px;">Tổng doanh thu</p>
-                <h4 class="fw-bold mb-0 text-dark">42.190.000 ₫</h4>
+                <h4 class="fw-bold mb-0 text-dark">@Model.TongDoanhThu.ToString("N0", viCulture) ₫</h4>
             </div>
             <div class="stat-icon" style="background: rgba(219, 68, 68, 0.1); color: #DB4444;">
                 <i class="bi bi-currency-dollar"></i>
@@ -52,7 +62,7 @@
         <div class="stat-card" style="border-left-color: #2563eb;">
             <div>
                 <p class="text-muted mb-1 fw-medium" style="font-size: 14px;">Tổng đơn hàng</p>
-                <h4 class="fw-bold mb-0 text-dark">20</h4>
+                <h4 class="fw-bold mb-0 text-dark">@Model.TongDonHang</h4>
             </div>
             <div class="stat-icon" style="background: rgba(37, 99, 235, 0.1); color: #2563eb;">
                 <i class="bi bi-cart-check"></i>
@@ -64,7 +74,7 @@
         <div class="stat-card" style="border-left-color: #16a34a;">
             <div>
                 <p class="text-muted mb-1 fw-medium" style="font-size: 14px;">Sản phẩm đang bán</p>
-                <h4 class="fw-bold mb-0 text-dark">19</h4>
+                <h4 class="fw-bold mb-0 text-dark">@Model.SanPhamDangBan <span class="text-muted fw-normal" style="font-size: 14px;">/ @Model.TongSanPham</span></h4>
             </div>
             <div class="stat-icon" style="background: rgba(22, 163, 74, 0.1); color: #16a34a;">
                 <i class="bi bi-box-seam"></i>
@@ -76,10 +86,67 @@
         <div class="stat-card" style="border-left-color: #d97706;">
             <div>
                 <p class="text-muted mb-1 fw-medium" style="font-size: 14px;">Tài khoản khách hàng</p>
-                <h4 class="fw-bold mb-0 text-dark">19</h4>
+                <h4 class="fw-bold mb-0 text-dark">@Model.TongKhachHang</h4>
             </div>
             <div class="stat-icon" style="background: rgba(217, 119, 6, 0.1); color: #d97706;">
                 <i class="bi bi-people"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+@await Component.InvokeAsync("Notification")
+
+<div class="table-card">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+        <div>
+            <h5 class="fw-bold mb-1">Thống kê doanh thu theo tháng - Năm @Model.NamThongKe</h5>
+            <small class="text-muted">
+                Tổng doanh thu năm @Model.NamThongKe:
+                <strong class="text-danger">@totalYearRevenue.ToString("N0", viCulture) ₫</strong>
+                (@totalYearOrders đơn hàng hợp lệ)
+            </small>
+        </div>
+        <form asp-area="Admin" asp-controller="Dashboard" asp-action="Index" method="get" class="d-flex align-items-center gap-2">
+            <label for="yearSelect" class="form-label mb-0 small text-muted">Chọn năm:</label>
+            <select id="yearSelect" name="year" class="form-select form-select-sm w-auto" onchange="this.form.submit()">
+                @foreach (var y in Model.DanhSachNam)
+                {
+                    <option value="@y" selected="@(y == Model.NamThongKe)">Năm @y</option>
+                }
+            </select>
+        </form>
+    </div>
+
+    <div class="row g-4 align-items-center">
+        <div class="col-lg-8">
+            <div style="position: relative; height: 320px;">
+                <canvas id="monthlyRevenueChart"></canvas>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="table-responsive" style="max-height: 320px; overflow-y: auto;">
+                <table class="table table-sm table-hover align-middle mb-0">
+                    <thead class="table-light sticky-top">
+                        <tr>
+                            <th>Tháng</th>
+                            <th class="text-center">Số đơn</th>
+                            <th class="text-end">Doanh thu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var m in Model.DoanhThuTheoThang)
+                        {
+                            <tr>
+                                <td class="fw-medium">Tháng @m.Thang</td>
+                                <td class="text-center">@m.SoDonHang</td>
+                                <td class="text-end @(m.DoanhThu > 0 ? "fw-semibold text-danger" : "text-muted")">
+                                    @m.DoanhThu.ToString("N0", viCulture) ₫
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -102,38 +169,97 @@
                     <th>Ngày đặt</th>
                     <th>Tổng tiền</th>
                     <th>Trạng thái</th>
+                    <th class="text-end">Chi tiết</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="fw-semibold">DH0020</td>
-                    <td>Nguyễn Văn An</td>
-                    <td>11/11/2026</td>
-                    <td class="fw-semibold text-danger">7.470.000 ₫</td>
-                    <td><span class="badge bg-danger">Đã hủy</span></td>
-                </tr>
-                <tr>
-                    <td class="fw-semibold">DH0019</td>
-                    <td>Cao Nhật Minh</td>
-                    <td>09/11/2026</td>
-                    <td class="fw-semibold text-danger">2.780.000 ₫</td>
-                    <td><span class="badge bg-warning text-dark">Chờ xác nhận</span></td>
-                </tr>
-                <tr>
-                    <td class="fw-semibold">DH0018</td>
-                    <td>Đinh Mỹ Duyên</td>
-                    <td>07/11/2026</td>
-                    <td class="fw-semibold text-danger">1.490.000 ₫</td>
-                    <td><span class="badge bg-warning text-dark">Chờ xác nhận</span></td>
-                </tr>
-                <tr>
-                    <td class="fw-semibold">DH0017</td>
-                    <td>Vũ Hoàng Long</td>
-                    <td>05/11/2026</td>
-                    <td class="fw-semibold text-danger">1.170.000 ₫</td>
-                    <td><span class="badge bg-info text-dark">Đã xác nhận</span></td>
-                </tr>
+                @if (Model.DonHangGanDay.Any())
+                {
+                    @foreach (var order in Model.DonHangGanDay)
+                    {
+                        <tr>
+                            <td class="fw-semibold">@(string.IsNullOrEmpty(order.MaDonHang) ? $"DH{order.Id:D4}" : order.MaDonHang)</td>
+                            <td>@order.TenNguoiNhan</td>
+                            <td>@order.NgayDat.ToString("dd/MM/yyyy")</td>
+                            <td class="fw-semibold text-danger">@order.TongTien.ToString("N0", viCulture) ₫</td>
+                            <td>
+                                <span class="badge @OrderStatusHelper.GetBadgeClass(order.TrangThai)">
+                                    @OrderStatusHelper.GetDisplayName(order.TrangThai)
+                                </span>
+                            </td>
+                            <td class="text-end">
+                                <a asp-area="Admin" asp-controller="Order" asp-action="Details" asp-route-id="@order.Id"
+                                   class="btn btn-sm btn-outline-secondary">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center text-muted py-4">
+                            Chưa có đơn hàng nào trong hệ thống.
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
 </div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+        (function () {
+            const ctx = document.getElementById('monthlyRevenueChart');
+            if (!ctx) return;
+
+            const labels = @Html.Raw(monthlyLabelsJson);
+            const revenueData = @Html.Raw(monthlyRevenueJson);
+            const ordersData = @Html.Raw(monthlyOrdersJson);
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Doanh thu (VNĐ)',
+                        data: revenueData,
+                        backgroundColor: 'rgba(219, 68, 68, 0.8)',
+                        borderColor: '#DB4444',
+                        borderWidth: 1,
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    const val = context.parsed.y || 0;
+                                    const count = ordersData[context.dataIndex] || 0;
+                                    return `Doanh thu: ${val.toLocaleString('vi-VN')} ₫ (${count} đơn)`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function (value) {
+                                    return Number(value).toLocaleString('vi-VN') + ' ₫';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        })();
+    </script>
+}

@@ -1,0 +1,14 @@
+@model DoAnNhom08LTW.Models.ViewModels.Admin.CartSummaryViewModel
+
+<a asp-area="" asp-controller="Cart" asp-action="Index"
+   class="cart-summary-link"
+   style="position: relative; display: inline-flex; align-items: center; text-decoration: none;"
+   title="Giỏ hàng (@Model.TotalQuantity sản phẩm)">
+    <img src="~/user/image/cart.png" alt="Giỏ hàng" class="nav_cart" />
+    @if (Model.TotalQuantity > 0)
+    {
+        <span style="position: absolute; top: -6px; right: -8px; background: #DB4444; color: #fff; font-size: 11px; font-weight: 700; min-width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 999px; padding: 0 4px;">
+            @Model.TotalQuantity
+        </span>
+    }
+</a>
