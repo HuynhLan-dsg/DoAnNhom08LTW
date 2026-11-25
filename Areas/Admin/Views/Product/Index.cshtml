@@ -1,5 +1,209 @@
-﻿@*
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model IEnumerable<DoAnNhom08LTW.Models.SanPham>
+@using System.Globalization
+@using DoAnNhom08LTW.Models.ViewModels.Admin
 @{
+    ViewData["Title"] = "Quản lý sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_admin.cshtml";
+    var viCulture = CultureInfo.GetCultureInfo("vi-VN");
+    string? keyword = ViewBag.Keyword as string;
+    int? categoryId = ViewBag.CategoryId as int?;
+    bool? dangBan = ViewBag.DangBan as bool?;
+    string? stockFilter = ViewBag.StockFilter as string;
 }
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle me-2"></i>@TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle me-2"></i>@TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="card border-0 shadow-sm rounded-3">
+    <div class="card-header bg-white py-3">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+            <h5 class="mb-0 fw-bold text-dark">Danh sách sản phẩm & Tồn kho (@Model.Count())</h5>
+            <a asp-area="Admin" asp-controller="Product" asp-action="Create" class="btn btn-sm btn-danger">
+                <i class="bi bi-plus-lg me-1"></i>Thêm sản phẩm
+            </a>
+        </div>
+
+        <form asp-area="Admin" asp-controller="Product" asp-action="Index" method="get" class="row g-2 align-items-center">
+            <div class="col-md-3">
+                <input type="text" name="keyword" value="@keyword" class="form-control form-control-sm" placeholder="Tìm mã, tên SP, thương hiệu..." />
+            </div>
+            <div class="col-md-2">
+                <select name="categoryId" asp-items="ViewBag.Categories" class="form-select form-select-sm">
+                    <option value="">-- Tất cả danh mục --</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select name="dangBan" class="form-select form-select-sm">
+                    <option value="">-- Trạng thái bán --</option>
+                    <option value="true" selected="@(dangBan == true)">Đang bán</option>
+                    <option value="false" selected="@(dangBan == false)">Ngừng bán (Đã xóa mềm)</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select name="stockFilter" class="form-select form-select-sm">
+                    <option value="">-- Tình trạng kho --</option>
+                    <option value="out" selected="@(stockFilter == "out")">Hết hàng (0)</option>
+                    <option value="low" selected="@(stockFilter == "low")">Sắp hết (1 - 10)</option>
+                    <option value="in" selected="@(stockFilter == "in")">Còn nhiều (&gt; 10)</option>
+                </select>
+            </div>
+            <div class="col-md-3 d-flex gap-2">
+                <button type="submit" class="btn btn-sm btn-outline-secondary">
+                    <i class="bi bi-funnel me-1"></i>Lọc
+                </button>
+                @if (!string.IsNullOrWhiteSpace(keyword) || categoryId.HasValue || dangBan.HasValue || !string.IsNullOrWhiteSpace(stockFilter))
+                {
+                    <a asp-area="Admin" asp-controller="Product" asp-action="Index" class="btn btn-sm btn-light border">Đặt lại</a>
+                }
+            </div>
+        </form>
+    </div>
+
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-4">Mã SP</th>
+                        <th>Sản phẩm</th>
+                        <th>Danh mục</th>
+                        <th>Giá bán</th>
+                        <th>Khuyến mãi</th>
+                        <th style="min-width: 170px;">Tồn kho</th>
+                        <th>Trạng thái</th>
+                        <th class="text-end pe-4">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Any())
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr class="@(item.DangBan ? "" : "table-light text-muted")">
+                                <td class="ps-4 fw-semibold">@(string.IsNullOrEmpty(item.MaSanPham) ? $"SP{item.Id:D4}" : item.MaSanPham)</td>
+                                <td>
+                                    <div class="d-flex align-items-center gap-3">
+                                        @if (!string.IsNullOrWhiteSpace(item.HinhAnh))
+                                        {
+                                            <img src="@item.HinhAnh" alt="@item.TenSanPham"
+                                                 style="width: 48px; height: 48px; object-fit: cover; border-radius: 8px; border: 1px solid #e5e7eb;" />
+                                        }
+                                        else
+                                        {
+                                            <div class="d-flex align-items-center justify-content-center bg-light text-muted"
+                                                 style="width: 48px; height: 48px; border-radius: 8px; border: 1px solid #e5e7eb;">
+                                                <i class="bi bi-box-seam"></i>
+                                            </div>
+                                        }
+                                        <div>
+                                            <div class="fw-medium text-dark">@item.TenSanPham</div>
+                                            <small class="text-muted">@item.ThuongHieu</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>@(item.DanhMuc?.TenDanhMuc ?? "—")</td>
+                                <td class="fw-semibold text-danger">@item.GiaBan.ToString("N0", viCulture) ₫</td>
+                                <td>
+                                    @if (item.KhuyenMai != null)
+                                    {
+                                        <span class="badge bg-danger-subtle text-danger border border-danger-subtle">
+                                            -@PromotionHelper.FormatDiscount(item.KhuyenMai.LoaiGiam, item.KhuyenMai.GiaTriGiam)
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted small">Không</span>
+                                    }
+                                </td>
+                                <td>
+                                    <form asp-area="Admin" asp-controller="Product" asp-action="UpdateStock" method="post" class="d-flex align-items-center gap-1">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="id" value="@item.Id" />
+                                        <input type="number" name="soLuongTon" value="@item.SoLuongTon" min="0" max="1000000"
+                                               class="form-control form-control-sm text-center" style="width: 72px;" />
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary" title="Cập nhật tồn kho">
+                                            <i class="bi bi-check2"></i>
+                                        </button>
+                                        @if (item.SoLuongTon == 0)
+                                        {
+                                            <span class="badge bg-danger ms-1">Hết</span>
+                                        }
+                                        else if (item.SoLuongTon <= 10)
+                                        {
+                                            <span class="badge bg-warning text-dark ms-1">Thấp</span>
+                                        }
+                                    </form>
+                                </td>
+                                <td>
+                                    @if (item.DangBan)
+                                    {
+                                        <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                            <i class="bi bi-check-circle me-1"></i>Đang bán
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle">
+                                            <i class="bi bi-pause-circle me-1"></i>Ngừng bán
+                                        </span>
+                                    }
+                                </td>
+                                <td class="text-end pe-4">
+                                    <div class="d-inline-flex gap-1">
+                                        <a asp-area="Admin" asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id"
+                                           class="btn btn-sm btn-outline-primary" title="Chỉnh sửa">
+                                            <i class="bi bi-pencil-square"></i> Sửa
+                                        </a>
+                                        @if (item.DangBan)
+                                        {
+                                            <form asp-area="Admin" asp-controller="Product" asp-action="SoftDelete" method="post" class="d-inline"
+                                                  data-name="@item.TenSanPham"
+                                                  onsubmit="return confirm('Bạn có chắc muốn xóa mềm (ngừng bán) sản phẩm ' + this.dataset.name + ' không?');">
+                                                @Html.AntiForgeryToken()
+                                                <input type="hidden" name="id" value="@item.Id" />
+                                                <button type="submit" class="btn btn-sm btn-outline-danger" title="Xóa mềm (Ngừng bán)">
+                                                    <i class="bi bi-archive"></i> Ngừng bán
+                                                </button>
+                                            </form>
+                                        }
+                                        else
+                                        {
+                                            <form asp-area="Admin" asp-controller="Product" asp-action="Restore" method="post" class="d-inline">
+                                                @Html.AntiForgeryToken()
+                                                <input type="hidden" name="id" value="@item.Id" />
+                                                <button type="submit" class="btn btn-sm btn-outline-success" title="Mở bán lại">
+                                                    <i class="bi bi-arrow-counterclockwise"></i> Mở bán
+                                                </button>
+                                            </form>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="8" class="text-center text-muted py-4">Không tìm thấy sản phẩm nào.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
