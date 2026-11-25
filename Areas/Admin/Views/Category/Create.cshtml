@@ -1,0 +1,58 @@
+@model DoAnNhom08LTW.Models.ViewModels.Admin.CategoryFormViewModel
+@{
+    ViewData["Title"] = "Thêm danh mục mới";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_admin.cshtml";
+}
+
+<div class="card border-0 shadow-sm rounded-3" style="max-width: 720px;">
+    <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+        <h5 class="mb-0 fw-bold text-dark">Thông tin danh mục mới</h5>
+        <a asp-area="Admin" asp-controller="Category" asp-action="Index" class="btn btn-sm btn-outline-secondary">
+            <i class="bi bi-arrow-left me-1"></i>Quay lại
+        </a>
+    </div>
+    <div class="card-body p-4">
+        <form asp-area="Admin" asp-controller="Category" asp-action="Create" method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+            }
+
+            <div class="mb-3">
+                <label asp-for="TenDanhMuc" class="form-label fw-medium"></label>
+                <input asp-for="TenDanhMuc" class="form-control" placeholder="Ví dụ: Ốp lưng, Tai nghe, Cáp sạc..." />
+                <span asp-validation-for="TenDanhMuc" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="HinhAnhFile" class="form-label fw-medium"></label>
+                <input asp-for="HinhAnhFile" type="file" class="form-control" accept=".jpg,.jpeg,.png,.webp,.gif" />
+                <div class="form-text">Hỗ trợ .jpg, .png, .webp, .gif (tối đa 5MB).</div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="HinhAnh" class="form-label fw-medium">Hoặc nhập đường dẫn hình ảnh</label>
+                <input asp-for="HinhAnh" class="form-control" placeholder="/images/danhmuc/ten-anh.jpg" />
+                <span asp-validation-for="HinhAnh" class="text-danger small"></span>
+            </div>
+
+            <div class="form-check form-switch mb-4">
+                <input asp-for="DangHoatDong" class="form-check-input" type="checkbox" />
+                <label asp-for="DangHoatDong" class="form-check-label fw-medium">Hiển thị danh mục (Đang hoạt động)</label>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2">
+                <a asp-area="Admin" asp-controller="Category" asp-action="Index" class="btn btn-light border">Hủy</a>
+                <button type="submit" class="btn btn-danger">
+                    <i class="bi bi-save me-1"></i>Lưu danh mục
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+}

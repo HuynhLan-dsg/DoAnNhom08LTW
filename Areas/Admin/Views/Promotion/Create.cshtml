@@ -1,0 +1,79 @@
+@model DoAnNhom08LTW.Models.ViewModels.Admin.PromotionFormViewModel
+@using DoAnNhom08LTW.Models.ViewModels.Admin
+@{
+    ViewData["Title"] = "Thêm khuyến mãi mới";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_admin.cshtml";
+}
+
+<div class="card border-0 shadow-sm rounded-3" style="max-width: 760px;">
+    <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+        <h5 class="mb-0 fw-bold text-dark">Thông tin chương trình khuyến mãi</h5>
+        <a asp-area="Admin" asp-controller="Promotion" asp-action="Index" class="btn btn-sm btn-outline-secondary">
+            <i class="bi bi-arrow-left me-1"></i>Quay lại
+        </a>
+    </div>
+    <div class="card-body p-4">
+        <form asp-area="Admin" asp-controller="Promotion" asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+            }
+
+            <div class="mb-3">
+                <label asp-for="TenKhuyenMai" class="form-label fw-medium"></label>
+                <input asp-for="TenKhuyenMai" class="form-control" placeholder="Ví dụ: Flash Sale cuối tuần, Giảm sốc 20%..." />
+                <span asp-validation-for="TenKhuyenMai" class="text-danger small"></span>
+            </div>
+
+            <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                    <label asp-for="LoaiGiam" class="form-label fw-medium"></label>
+                    <select asp-for="LoaiGiam" class="form-select">
+                        <option value="@PromotionHelper.PhanTram">Giảm theo phần trăm (%)</option>
+                        <option value="@PromotionHelper.SoTien">Giảm theo số tiền cố định (VNĐ)</option>
+                    </select>
+                    <span asp-validation-for="LoaiGiam" class="text-danger small"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="GiaTriGiam" class="form-label fw-medium"></label>
+                    <input asp-for="GiaTriGiam" type="number" step="any" min="0.01" class="form-control" />
+                    <div class="form-text">Nhập &gt; 0 đến 100 nếu giảm theo %, hoặc số tiền VNĐ (&gt; 0) nếu giảm cố định.</div>
+                    <span asp-validation-for="GiaTriGiam" class="text-danger small"></span>
+                </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                    <label asp-for="NgayBatDau" class="form-label fw-medium"></label>
+                    <input asp-for="NgayBatDau" type="datetime-local" value="@Model.NgayBatDau.ToString("yyyy-MM-ddTHH:mm")" class="form-control" />
+                    <span asp-validation-for="NgayBatDau" class="text-danger small"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="NgayKetThuc" class="form-label fw-medium"></label>
+                    <input asp-for="NgayKetThuc" type="datetime-local" value="@Model.NgayKetThuc.ToString("yyyy-MM-ddTHH:mm")" class="form-control" />
+                    <span asp-validation-for="NgayKetThuc" class="text-danger small"></span>
+                </div>
+            </div>
+
+            <div class="form-check form-switch mb-4">
+                <input asp-for="TrangThai" class="form-check-input" type="checkbox" />
+                <label asp-for="TrangThai" class="form-check-label fw-medium">Kích hoạt chương trình khuyến mãi</label>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2">
+                <a asp-area="Admin" asp-controller="Promotion" asp-action="Index" class="btn btn-light border">Hủy</a>
+                <button type="submit" class="btn btn-danger">
+                    <i class="bi bi-save me-1"></i>Lưu khuyến mãi
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+}

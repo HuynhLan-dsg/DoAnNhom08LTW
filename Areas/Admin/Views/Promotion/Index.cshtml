@@ -1,5 +1,128 @@
-﻿@*
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model IEnumerable<DoAnNhom08LTW.Models.KhuyenMai>
+@using DoAnNhom08LTW.Models.ViewModels.Admin
 @{
+    ViewData["Title"] = "Quản lý khuyến mãi";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_admin.cshtml";
+    string? keyword = ViewBag.Keyword as string;
+    bool? trangThai = ViewBag.TrangThai as bool?;
 }
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle me-2"></i>@TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle me-2"></i>@TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="card border-0 shadow-sm rounded-3">
+    <div class="card-header bg-white py-3 d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <h5 class="mb-0 fw-bold text-dark">Danh sách chương trình khuyến mãi (@Model.Count())</h5>
+        <div class="d-flex flex-wrap align-items-center gap-2">
+            <form asp-area="Admin" asp-controller="Promotion" asp-action="Index" method="get" class="d-flex flex-wrap gap-2">
+                <input type="text" name="keyword" value="@keyword" class="form-control form-control-sm" style="width: 220px;" placeholder="Tìm mã hoặc tên KM..." />
+                <select name="trangThai" class="form-select form-select-sm w-auto">
+                    <option value="">Tất cả trạng thái</option>
+                    <option value="true" selected="@(trangThai == true)">Đang kích hoạt</option>
+                    <option value="false" selected="@(trangThai == false)">Tạm tắt</option>
+                </select>
+                <button type="submit" class="btn btn-sm btn-outline-secondary">
+                    <i class="bi bi-search"></i> Lọc
+                </button>
+                @if (!string.IsNullOrWhiteSpace(keyword) || trangThai.HasValue)
+                {
+                    <a asp-area="Admin" asp-controller="Promotion" asp-action="Index" class="btn btn-sm btn-light border">Đặt lại</a>
+                }
+            </form>
+            <a asp-area="Admin" asp-controller="Promotion" asp-action="Create" class="btn btn-sm btn-danger">
+                <i class="bi bi-plus-lg me-1"></i>Thêm khuyến mãi
+            </a>
+        </div>
+    </div>
+
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-4">Mã KM</th>
+                        <th>Tên chương trình</th>
+                        <th>Loại giảm</th>
+                        <th>Giá trị giảm</th>
+                        <th>Thời gian áp dụng</th>
+                        <th class="text-center">SP áp dụng</th>
+                        <th>Trạng thái</th>
+                        <th class="text-end pe-4">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Any())
+                    {
+                        @foreach (var item in Model)
+                        {
+                            var productCount = item.SanPhams?.Count ?? 0;
+                            <tr>
+                                <td class="ps-4 fw-semibold">@(string.IsNullOrEmpty(item.MaKhuyenMai) ? $"KM{item.Id:D4}" : item.MaKhuyenMai)</td>
+                                <td class="fw-medium text-dark">@item.TenKhuyenMai</td>
+                                <td>@PromotionHelper.GetDisplayType(item.LoaiGiam)</td>
+                                <td class="fw-semibold text-danger">@PromotionHelper.FormatDiscount(item.LoaiGiam, item.GiaTriGiam)</td>
+                                <td class="small">
+                                    <div>@item.NgayBatDau.ToString("dd/MM/yyyy HH:mm")</div>
+                                    <div class="text-muted">đến @item.NgayKetThuc.ToString("dd/MM/yyyy HH:mm")</div>
+                                </td>
+                                <td class="text-center">
+                                    <span class="badge bg-light text-dark border">@productCount SP</span>
+                                </td>
+                                <td>
+                                    <span class="badge @PromotionHelper.GetStatusBadgeClass(item)">
+                                        @PromotionHelper.GetStatusText(item)
+                                    </span>
+                                </td>
+                                <td class="text-end pe-4">
+                                    <div class="d-inline-flex gap-1">
+                                        <a asp-area="Admin" asp-controller="Promotion" asp-action="Edit" asp-route-id="@item.Id"
+                                           class="btn btn-sm btn-outline-primary" title="Chỉnh sửa">
+                                            <i class="bi bi-pencil-square"></i> Sửa
+                                        </a>
+                                        <form asp-area="Admin" asp-controller="Promotion" asp-action="ToggleStatus" method="post" class="d-inline">
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" name="id" value="@item.Id" />
+                                            <button type="submit" class="btn btn-sm btn-outline-warning" title="@(item.TrangThai ? "Tạm tắt" : "Kích hoạt")">
+                                                <i class="bi @(item.TrangThai ? "bi-toggle-on" : "bi-toggle-off")"></i>
+                                            </button>
+                                        </form>
+                                        <form asp-area="Admin" asp-controller="Promotion" asp-action="Delete" method="post" class="d-inline"
+                                              data-name="@item.TenKhuyenMai"
+                                              onsubmit="return confirm('Xóa khuyến mãi ' + this.dataset.name + ' sẽ gỡ khuyến mãi này khỏi các sản phẩm đang áp dụng. Bạn có chắc muốn tiếp tục?');">
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" name="id" value="@item.Id" />
+                                            <button type="submit" class="btn btn-sm btn-outline-danger" title="Xóa khuyến mãi">
+                                                <i class="bi bi-trash"></i> Xóa
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="8" class="text-center text-muted py-4">Không tìm thấy chương trình khuyến mãi nào.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
