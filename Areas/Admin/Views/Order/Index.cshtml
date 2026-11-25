@@ -1,5 +1,223 @@
-﻿@*
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model IEnumerable<DoAnNhom08LTW.Models.DonHang>
+@using System.Globalization
+@using DoAnNhom08LTW.Models.ViewModels.Admin
 @{
+    ViewData["Title"] = "Quản lý đơn hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_admin.cshtml";
+    var viCulture = CultureInfo.GetCultureInfo("vi-VN");
+    string? currentStatus = ViewBag.Status as string;
+    string? keyword = ViewBag.Keyword as string;
+    var currentUrl = Context.Request.Path + Context.Request.QueryString;
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle me-2"></i>@TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle me-2"></i>@TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="card border-0 shadow-sm rounded-3">
+    <div class="card-header bg-white py-3">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+            <h5 class="mb-0 fw-bold text-dark">Danh sách đơn hàng (@Model.Count())</h5>
+            <form asp-area="Admin" asp-controller="Order" asp-action="Index" method="get" class="d-flex flex-wrap gap-2">
+                @if (!string.IsNullOrWhiteSpace(currentStatus))
+                {
+                    <input type="hidden" name="status" value="@currentStatus" />
+                }
+                <input type="text" name="keyword" value="@keyword" class="form-control form-control-sm" style="width: 260px;"
+                       placeholder="Tìm mã đơn, tên khách, SĐT..." />
+                <button type="submit" class="btn btn-sm btn-outline-secondary">
+                    <i class="bi bi-search"></i> Tìm kiếm
+                </button>
+                @if (!string.IsNullOrWhiteSpace(keyword) || !string.IsNullOrWhiteSpace(currentStatus))
+                {
+                    <a asp-area="Admin" asp-controller="Order" asp-action="Index" class="btn btn-sm btn-light border">Đặt lại</a>
+                }
+            </form>
+        </div>
+
+        <ul class="nav nav-pills gap-2">
+            <li class="nav-item">
+                <a asp-area="Admin" asp-controller="Order" asp-action="Index" asp-route-keyword="@keyword"
+                   class="nav-link py-1 px-3 small @(string.IsNullOrWhiteSpace(currentStatus) ? "active bg-danger" : "text-dark bg-light")">
+                    Tất cả
+                </a>
+            </li>
+            @foreach (var st in OrderStatusHelper.AllStatuses)
+            {
+                bool isSelected = !string.IsNullOrWhiteSpace(currentStatus) &&
+                                  OrderStatusHelper.Normalize(currentStatus) == st;
+                <li class="nav-item">
+                    <a asp-area="Admin" asp-controller="Order" asp-action="Index"
+                       asp-route-status="@st" asp-route-keyword="@keyword"
+                       class="nav-link py-1 px-3 small @(isSelected ? "active bg-danger" : "text-dark bg-light")">
+                        @OrderStatusHelper.GetDisplayName(st)
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-4">Mã đơn</th>
+                        <th>Người nhận / Khách hàng</th>
+                        <th>Ngày đặt</th>
+                        <th>Thanh toán</th>
+                        <th>Tổng tiền</th>
+                        <th>Trạng thái</th>
+                        <th class="text-end pe-4">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Any())
+                    {
+                        @foreach (var order in Model)
+                        {
+                            var orderCode = string.IsNullOrEmpty(order.MaDonHang) ? $"DH{order.Id:D4}" : order.MaDonHang;
+                            <tr>
+                                <td class="ps-4 fw-semibold">@orderCode</td>
+                                <td>
+                                    <div class="fw-medium text-dark">@order.TenNguoiNhan</div>
+                                    <small class="text-muted">@order.SoDienThoai</small>
+                                </td>
+                                <td>@order.NgayDat.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td>
+                                    <span class="badge bg-light text-dark border">@order.PhuongThucThanhToan</span>
+                                </td>
+                                <td class="fw-semibold text-danger">@order.TongTien.ToString("N0", viCulture) ₫</td>
+                                <td>
+                                    <span class="badge @OrderStatusHelper.GetBadgeClass(order.TrangThai)">
+                                        @OrderStatusHelper.GetDisplayName(order.TrangThai)
+                                    </span>
+                                </td>
+                                <td class="text-end pe-4">
+                                    <div class="d-inline-flex flex-wrap justify-content-end gap-1">
+                                        <a asp-area="Admin" asp-controller="Order" asp-action="Details" asp-route-id="@order.Id"
+                                           class="btn btn-sm btn-outline-secondary" title="Xem chi tiết">
+                                            <i class="bi bi-eye"></i> Chi tiết
+                                        </a>
+
+                                        @if (OrderStatusHelper.CanConfirm(order.TrangThai))
+                                        {
+                                            <form asp-area="Admin" asp-controller="Order" asp-action="Confirm" method="post" class="d-inline">
+                                                @Html.AntiForgeryToken()
+                                                <input type="hidden" name="id" value="@order.Id" />
+                                                <input type="hidden" name="returnUrl" value="@currentUrl" />
+                                                <button type="submit" class="btn btn-sm btn-outline-info" title="Xác nhận đơn hàng">
+                                                    <i class="bi bi-check2-circle"></i> Xác nhận
+                                                </button>
+                                            </form>
+                                        }
+                                        else if (OrderStatusHelper.CanShip(order.TrangThai))
+                                        {
+                                            <form asp-area="Admin" asp-controller="Order" asp-action="UpdateStatus" method="post" class="d-inline">
+                                                @Html.AntiForgeryToken()
+                                                <input type="hidden" name="id" value="@order.Id" />
+                                                <input type="hidden" name="newStatus" value="@OrderStatusHelper.DangGiao" />
+                                                <input type="hidden" name="returnUrl" value="@currentUrl" />
+                                                <button type="submit" class="btn btn-sm btn-outline-primary" title="Chuyển sang Đang giao hàng">
+                                                    <i class="bi bi-truck"></i> Giao hàng
+                                                </button>
+                                            </form>
+                                        }
+                                        else if (OrderStatusHelper.CanComplete(order.TrangThai))
+                                        {
+                                            <form asp-area="Admin" asp-controller="Order" asp-action="UpdateStatus" method="post" class="d-inline">
+                                                @Html.AntiForgeryToken()
+                                                <input type="hidden" name="id" value="@order.Id" />
+                                                <input type="hidden" name="newStatus" value="@OrderStatusHelper.DaGiao" />
+                                                <input type="hidden" name="returnUrl" value="@currentUrl" />
+                                                <button type="submit" class="btn btn-sm btn-outline-success" title="Xác nhận Đã giao">
+                                                    <i class="bi bi-box2-heart"></i> Đã giao
+                                                </button>
+                                            </form>
+                                        }
+
+                                        @if (OrderStatusHelper.CanCancel(order.TrangThai))
+                                        {
+                                            <button type="button"
+                                                    class="btn btn-sm btn-outline-danger"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#cancelOrderModal"
+                                                    data-order-id="@order.Id"
+                                                    data-order-code="@orderCode"
+                                                    title="Hủy đơn hàng">
+                                                <i class="bi bi-x-circle"></i> Hủy
+                                            </button>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7" class="text-center text-muted py-4">Không tìm thấy đơn hàng nào.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cancelOrderModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form asp-area="Admin" asp-controller="Order" asp-action="Cancel" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" id="cancelOrderId" />
+                <input type="hidden" name="returnUrl" value="@currentUrl" />
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Hủy đơn hàng <span id="cancelOrderCode" class="text-danger"></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="small text-muted">
+                        Khi hủy đơn hàng, số lượng sản phẩm trong đơn sẽ tự động được hoàn lại vào tồn kho.
+                    </p>
+                    <div class="mb-0">
+                        <label for="cancelReason" class="form-label fw-medium">Lý do hủy (tùy chọn)</label>
+                        <textarea name="reason" id="cancelReason" rows="3" class="form-control" placeholder="Nhập lý do hủy đơn..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light border" data-bs-dismiss="modal">Đóng</button>
+                    <button type="submit" class="btn btn-danger">Xác nhận hủy đơn</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const cancelModal = document.getElementById('cancelOrderModal');
+        if (cancelModal) {
+            cancelModal.addEventListener('show.bs.modal', function (event) {
+                const button = event.relatedTarget;
+                document.getElementById('cancelOrderId').value = button.getAttribute('data-order-id');
+                document.getElementById('cancelOrderCode').textContent = button.getAttribute('data-order-code');
+                document.getElementById('cancelReason').value = '';
+            });
+        }
+    </script>
 }

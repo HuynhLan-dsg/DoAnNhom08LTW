@@ -1,0 +1,246 @@
+@model DoAnNhom08LTW.Models.DonHang
+@using System.Globalization
+@using DoAnNhom08LTW.Models.ViewModels.Admin
+@{
+    var orderCode = string.IsNullOrEmpty(Model.MaDonHang) ? $"DH{Model.Id:D4}" : Model.MaDonHang;
+    ViewData["Title"] = $"Chi tiết đơn hàng {orderCode}";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_admin.cshtml";
+    var viCulture = CultureInfo.GetCultureInfo("vi-VN");
+    var detailsUrl = Url.Action("Details", "Order", new { area = "Admin", id = Model.Id });
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-check-circle me-2"></i>@TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle me-2"></i>@TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div class="d-flex align-items-center gap-2">
+        <h5 class="fw-bold mb-0">Đơn hàng @orderCode</h5>
+        <span class="badge @OrderStatusHelper.GetBadgeClass(Model.TrangThai) fs-6">
+            @OrderStatusHelper.GetDisplayName(Model.TrangThai)
+        </span>
+    </div>
+    <a asp-area="Admin" asp-controller="Order" asp-action="Index" class="btn btn-sm btn-outline-secondary">
+        <i class="bi bi-arrow-left me-1"></i>Quay lại danh sách
+    </a>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-6">
+        <div class="card border-0 shadow-sm rounded-3 h-100">
+            <div class="card-header bg-white py-3">
+                <h6 class="mb-0 fw-bold"><i class="bi bi-person-lines-fill me-2 text-danger"></i>Thông tin người nhận</h6>
+            </div>
+            <div class="card-body">
+                <dl class="row mb-0">
+                    <dt class="col-sm-4 text-muted">Người nhận</dt>
+                    <dd class="col-sm-8 fw-medium">@Model.TenNguoiNhan</dd>
+
+                    <dt class="col-sm-4 text-muted">Số điện thoại</dt>
+                    <dd class="col-sm-8">@Model.SoDienThoai</dd>
+
+                    <dt class="col-sm-4 text-muted">Địa chỉ giao</dt>
+                    <dd class="col-sm-8">@Model.DiaChiGiao</dd>
+
+                    <dt class="col-sm-4 text-muted">Tài khoản đặt</dt>
+                    <dd class="col-sm-8">
+                        @if (Model.TaiKhoan != null)
+                        {
+                            <span>@Model.TaiKhoan.HoTen (@Model.TaiKhoan.Email)</span>
+                        }
+                        else
+                        {
+                            <span class="text-muted">ID #@Model.MaTaiKhoanId</span>
+                        }
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card border-0 shadow-sm rounded-3 h-100">
+            <div class="card-header bg-white py-3">
+                <h6 class="mb-0 fw-bold"><i class="bi bi-receipt me-2 text-danger"></i>Thông tin xử lý đơn hàng</h6>
+            </div>
+            <div class="card-body">
+                <dl class="row mb-3">
+                    <dt class="col-sm-5 text-muted">Ngày đặt hàng</dt>
+                    <dd class="col-sm-7">@Model.NgayDat.ToString("dd/MM/yyyy HH:mm:ss")</dd>
+
+                    <dt class="col-sm-5 text-muted">Phương thức thanh toán</dt>
+                    <dd class="col-sm-7"><span class="badge bg-light text-dark border">@Model.PhuongThucThanhToan</span></dd>
+
+                    <dt class="col-sm-5 text-muted">Ghi chú</dt>
+                    <dd class="col-sm-7">@(string.IsNullOrWhiteSpace(Model.GhiChu) ? "Không có" : Model.GhiChu)</dd>
+
+                    <dt class="col-sm-5 text-muted">Tổng thanh toán</dt>
+                    <dd class="col-sm-7 fw-bold text-danger fs-5">@Model.TongTien.ToString("N0", viCulture) ₫</dd>
+                </dl>
+
+                <div class="border-top pt-3 d-flex flex-wrap gap-2">
+                    @if (OrderStatusHelper.CanConfirm(Model.TrangThai))
+                    {
+                        <form asp-area="Admin" asp-controller="Order" asp-action="Confirm" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@Model.Id" />
+                            <input type="hidden" name="returnUrl" value="@detailsUrl" />
+                            <button type="submit" class="btn btn-sm btn-info text-dark fw-medium">
+                                <i class="bi bi-check2-circle me-1"></i>Xác nhận đơn hàng
+                            </button>
+                        </form>
+                    }
+
+                    @if (OrderStatusHelper.CanShip(Model.TrangThai))
+                    {
+                        <form asp-area="Admin" asp-controller="Order" asp-action="UpdateStatus" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@Model.Id" />
+                            <input type="hidden" name="newStatus" value="@OrderStatusHelper.DangGiao" />
+                            <input type="hidden" name="returnUrl" value="@detailsUrl" />
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                <i class="bi bi-truck me-1"></i>Chuyển sang Đang giao hàng
+                            </button>
+                        </form>
+                    }
+
+                    @if (OrderStatusHelper.CanComplete(Model.TrangThai))
+                    {
+                        <form asp-area="Admin" asp-controller="Order" asp-action="UpdateStatus" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@Model.Id" />
+                            <input type="hidden" name="newStatus" value="@OrderStatusHelper.DaGiao" />
+                            <input type="hidden" name="returnUrl" value="@detailsUrl" />
+                            <button type="submit" class="btn btn-sm btn-success">
+                                <i class="bi bi-check-lg me-1"></i>Hoàn tất giao hàng (Đã giao)
+                            </button>
+                        </form>
+                    }
+
+                    @if (OrderStatusHelper.CanCancel(Model.TrangThai))
+                    {
+                        <button type="button" class="btn btn-sm btn-outline-danger"
+                                data-bs-toggle="modal" data-bs-target="#cancelDetailModal">
+                            <i class="bi bi-x-circle me-1"></i>Hủy đơn hàng
+                        </button>
+                    }
+
+                    @if (!OrderStatusHelper.CanConfirm(Model.TrangThai) &&
+                         !OrderStatusHelper.CanShip(Model.TrangThai) &&
+                         !OrderStatusHelper.CanComplete(Model.TrangThai) &&
+                         !OrderStatusHelper.CanCancel(Model.TrangThai))
+                    {
+                        <span class="text-muted small fst-italic">Đơn hàng đã ở trạng thái kết thúc, không thể thay đổi thêm.</span>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card border-0 shadow-sm rounded-3 mt-4">
+    <div class="card-header bg-white py-3">
+        <h6 class="mb-0 fw-bold">Danh sách sản phẩm (@(Model.ChiTietDonHangs?.Count ?? 0) mặt hàng)</h6>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-4">Mã CT</th>
+                        <th>Sản phẩm</th>
+                        <th class="text-end">Đơn giá</th>
+                        <th class="text-center">Số lượng</th>
+                        <th class="text-end pe-4">Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.ChiTietDonHangs != null && Model.ChiTietDonHangs.Any())
+                    {
+                        @foreach (var item in Model.ChiTietDonHangs)
+                        {
+                            var lineTotal = item.ThanhTien > 0 ? item.ThanhTien : item.SoLuong * item.DonGia;
+                            <tr>
+                                <td class="ps-4 fw-semibold">@(string.IsNullOrEmpty(item.MaChiTiet) ? $"CT{item.Id:D4}" : item.MaChiTiet)</td>
+                                <td>
+                                    <div class="d-flex align-items-center gap-3">
+                                        @if (!string.IsNullOrWhiteSpace(item.SanPham?.HinhAnh))
+                                        {
+                                            <img src="@item.SanPham.HinhAnh" alt="@item.SanPham.TenSanPham"
+                                                 style="width: 46px; height: 46px; object-fit: cover; border-radius: 6px; border: 1px solid #e5e7eb;" />
+                                        }
+                                        <div>
+                                            <div class="fw-medium text-dark">@(item.SanPham?.TenSanPham ?? $"Sản phẩm #{item.MaSanPhamId}")</div>
+                                            @if (item.SanPham != null)
+                                            {
+                                                <small class="text-muted">@item.SanPham.MaSanPham · @item.SanPham.ThuongHieu</small>
+                                            }
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-end">@item.DonGia.ToString("N0", viCulture) ₫</td>
+                                <td class="text-center"><span class="badge bg-light text-dark border">@item.SoLuong</span></td>
+                                <td class="text-end pe-4 fw-semibold text-danger">@lineTotal.ToString("N0", viCulture) ₫</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5" class="text-center text-muted py-4">Không có chi tiết sản phẩm cho đơn hàng này.</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot class="table-light">
+                    <tr>
+                        <th colspan="4" class="text-end">Tổng cộng đơn hàng:</th>
+                        <th class="text-end pe-4 text-danger fs-5">@Model.TongTien.ToString("N0", viCulture) ₫</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+@if (OrderStatusHelper.CanCancel(Model.TrangThai))
+{
+    <div class="modal fade" id="cancelDetailModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form asp-area="Admin" asp-controller="Order" asp-action="Cancel" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <input type="hidden" name="returnUrl" value="@detailsUrl" />
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold">Hủy đơn hàng <span class="text-danger">@orderCode</span></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="small text-muted">
+                            Hủy đơn hàng sẽ tự động cộng lại số lượng sản phẩm đã đặt vào tồn kho.
+                        </p>
+                        <div class="mb-0">
+                            <label for="detailCancelReason" class="form-label fw-medium">Lý do hủy (tùy chọn)</label>
+                            <textarea name="reason" id="detailCancelReason" rows="3" class="form-control" placeholder="Nhập lý do hủy đơn..."></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light border" data-bs-dismiss="modal">Đóng</button>
+                        <button type="submit" class="btn btn-danger">Xác nhận hủy đơn</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
