@@ -1,4 +1,5 @@
 ﻿using DoAnNhom08LTW.Models.ViewModels;
+using DoAnNhom08LTW.Services;
 using DoAnNhom08LTW.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -12,9 +13,11 @@ namespace DoAnNhom08LTW.Controllers
     {
         private readonly IAccountService _accountService;
         private readonly ILogger<AccountController> _logger;
-        public AccountController(IAccountService accountService, ILogger<AccountController> logger)
+        private readonly EmailService _emailservice;
+        public AccountController(IAccountService accountService, ILogger<AccountController> logger, EmailService emailService)
         {
             _accountService = accountService;
+            _emailservice = emailService;
             _logger = logger;
         }
         // 1. Hiển thị danh sách tài khoản (Khớp với link /Account/Index trong Sidebar Admin)
@@ -69,84 +72,130 @@ namespace DoAnNhom08LTW.Controllers
 
             return RedirectToAction("Index");
         }
+        // ================= 1. ĐĂNG NHẬP TRỰC TIẾP (KHÔNG CẦN OTP) =================
         [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
-        [HttpPost]
-        public async Task<IActionResult> Login( LoginViewModel model)
-        {
-            //Kiem tra validation
-            if(!ModelState.IsValid)
-                return View(model);
-            //Kiem tra tai khoan ton tai khong
-            var user = await _accountService.LoginAsync(model);
 
-            //Neu khong co tai khoan
-            if(user  == null)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var user = await _accountService.LoginAsync(model);
+            if (user == null)
             {
-                ModelState.AddModelError("", "Email hoac mat khau khogn dung");
-                return View(model);// tra ve form
+                ModelState.AddModelError("", "Email hoặc mật khẩu không đúng, hoặc tài khoản đã bị khóa.");
+                return View(model);
             }
 
-            //tao claimns: claim thong tin nguoi dung sau khi nhap 
+            // Tạo Claims & đăng nhập thẳng bằng Cookie
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()), //luu id
-                new Claim(ClaimTypes.Name, user.HoTen), // luu ho ten
-                new Claim(ClaimTypes.Email, user.Email), //luu email
-                new Claim(ClaimTypes.Role, user.VaiTro), //luu vai tro; dung de phan quyen
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Name, user.HoTen),
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(ClaimTypes.Role, user.VaiTro)
             };
-            //tao Identity 
 
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
 
-            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme); // tao danh tunh chua (id, hoten, email, role)
+            _logger.LogInformation("Người dùng {Email} đã đăng nhập thành công.", user.Email);
 
-            //Tao principal
-            var principal  = new ClaimsPrincipal(identity);// nguoi dung
-
-            //dang nhap
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-
-            _logger.LogInformation("Người dùng {Email} (Quyền: {Role}) đã đăng nhập.", user.Email, user.VaiTro);
-
-            // Điều hướng theo vai trò
             if (user.VaiTro == "Admin")
             {
                 return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
-                // (Nếu nhóm chưa tạo Area Admin thì tạm thời trỏ về trang quản lý tài khoản: RedirectToAction("Index", "Account"))
             }
 
             return RedirectToAction("Index", "Home");
         }
 
+        // ================= 2. ĐĂNG KÝ + GỬI OTP XÁC THỰC EMAIL =================
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
+
         [HttpPost]
-        public async Task<IActionResult> Register(
-            RegisterViewModel model)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
-            var result =
-                await _accountService.RegisterAsync(model);
-
-            if (!result)
+            // 1. Kiểm tra email đã tồn tại chưa trước khi gửi OTP
+            if (await _accountService.IsEmailExistsAsync(model.Email))
             {
-                ModelState.AddModelError(
-                    "",
-                    "Email đã tồn tại");
-
+                ModelState.AddModelError("", "Email này đã được sử dụng.");
                 return View(model);
             }
 
-            TempData["Success"] =
-                "Đăng ký thành công";
+            // 2. Tạo mã OTP 6 số & lưu tạm thông tin đăng ký vào Session
+            string otp = new Random().Next(100000, 999999).ToString();
+
+            HttpContext.Session.SetString("RegisterOTP", otp);
+            HttpContext.Session.SetString("PendingRegisterData", System.Text.Json.JsonSerializer.Serialize(model));
+
+            // 3. Gửi OTP qua Email
+            await _emailservice.SendOtpEmail(model.Email, otp);
+            _logger.LogInformation("Đã gửi mã OTP đăng ký tới {Email}: {Otp}", model.Email, otp);
+
+            return RedirectToAction("VerifyRegisterOtp");
+        }
+
+        [HttpGet]
+        public IActionResult VerifyRegisterOtp()
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("PendingRegisterData")))
+            {
+                return RedirectToAction("Register");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> VerifyRegisterOtp(VerifyLoginOtpViewModel model)
+        {
+            string? sessionOtp = HttpContext.Session.GetString("RegisterOTP");
+            string? pendingDataJson = HttpContext.Session.GetString("PendingRegisterData");
+
+            if (string.IsNullOrEmpty(sessionOtp) || string.IsNullOrEmpty(pendingDataJson))
+            {
+                TempData["ErrorMessage"] = "Phiên xác thực đã hết hạn, vui lòng đăng ký lại.";
+                return RedirectToAction("Register");
+            }
+
+            if (sessionOtp != model.OTP?.Trim())
+            {
+                ModelState.AddModelError("", "Mã OTP không chính xác.");
+                return View(model);
+            }
+
+            // 4. OTP hợp lệ -> Lấy lại thông tin đăng ký và lưu chính thức vào SQL Server
+            var registerModel = System.Text.Json.JsonSerializer.Deserialize<RegisterViewModel>(pendingDataJson);
+            if (registerModel == null)
+                return RedirectToAction("Register");
+
+            var result = await _accountService.RegisterAsync(registerModel);
+            if (!result)
+            {
+                ModelState.AddModelError("", "Email đã tồn tại trong hệ thống.");
+                return View(model);
+            }
+
+            // 5. Xóa Session tạm sau khi hoàn tất
+            HttpContext.Session.Remove("RegisterOTP");
+            HttpContext.Session.Remove("PendingRegisterData");
+
+            _logger.LogInformation("Tài khoản {Email} đã xác thực OTP và đăng ký thành công.", registerModel.Email);
+            TempData["SuccessMessage"] = "Xác thực Email thành công! Vui lòng đăng nhập.";
 
             return RedirectToAction("Login");
         }
@@ -180,6 +229,15 @@ namespace DoAnNhom08LTW.Controllers
             var result = await _accountService.UpdateProfileAsync(model);
             if (result)
             {
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.NameIdentifier, model.Id.ToString()),
+                    new Claim(ClaimTypes.Name, model.HoTen),
+                    new Claim(ClaimTypes.Email, User.FindFirstValue(ClaimTypes.Email) ?? model.Email),
+                    new Claim(ClaimTypes.Role, User.FindFirstValue(ClaimTypes.Role) ?? "KhachHang")
+                };
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
                 _logger.LogInformation("Tài khoản ID {UserId} đã cập nhật hồ sơ.", model.Id);
                 TempData["SuccessMessage"] = "Cập nhật thông tin cá nhân thành công!";
             }

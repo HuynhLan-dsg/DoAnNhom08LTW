@@ -2,6 +2,7 @@
 using DoAnNhom08LTW.Middleware;
 using DoAnNhom08LTW.Repositories.Implementations;
 using DoAnNhom08LTW.Repositories.Interfaces;
+using DoAnNhom08LTW.Services;
 using DoAnNhom08LTW.Services.Implementations;
 using DoAnNhom08LTW.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -26,6 +27,7 @@ namespace DoAnNhom08LTW
             builder.Services.AddScoped<
                 IAccountService,
                 AccountService>();
+            builder.Services.AddScoped<EmailService>();
 
             //đăng ký cho DbContext
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn")));
@@ -40,6 +42,9 @@ namespace DoAnNhom08LTW
                     options.AccessDeniedPath = "/Account/AccessDenied"; // Đã đăng nhập nhưng sai quyền -> đẩy về đây
                     options.ExpireTimeSpan = TimeSpan.FromHours(2);     // Thời gian sống của Cookie
                 });
+            builder.Services.AddDistributedMemoryCache();
+
+            builder.Services.AddSession();
             var app = builder.Build();
             app.UseMiddleware<ExceptionMiddleware>();
 
@@ -56,9 +61,14 @@ namespace DoAnNhom08LTW
 
             app.UseRouting();
 
+            app.UseSession();
+
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+
+            
             app.MapControllerRoute(
                 name: "areas",
                 pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");

@@ -13,5 +13,7 @@ namespace DoAnNhom08LTW.Services.Interfaces
         Task<IEnumerable<TaiKhoan>> GetAllAccountsAsync();
         Task<(bool success, string text)> ToggleAccountStatusAsync(int id, int currentAdminId);
         Task<(bool success, string text)> ChangeAccountRoleAsync(int id, string newRole, int currentAdminId);
+        Task<TaiKhoan?> GetByIdAsync(int id);
+        Task<bool> IsEmailExistsAsync(string email);
     }
 }

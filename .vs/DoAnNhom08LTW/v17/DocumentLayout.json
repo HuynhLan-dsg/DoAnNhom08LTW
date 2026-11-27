@@ -3,6 +3,54 @@
   "WorkspaceRootPath": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\middleware\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:middleware\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\services\\implementations\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:services\\implementations\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\services\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:services\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\views\\account\\verifyregisterotp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:views\\account\\verifyregisterotp.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\models\\viewmodels\\verifyloginotpviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:models\\viewmodels\\verifyloginotpviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\models\\emailsetting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:models\\emailsetting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\desicions.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
       "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:desicions.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
@@ -25,18 +73,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\middleware\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:middleware\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\views\\account\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -71,20 +107,12 @@
       "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:models\\khuyenmai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\services\\implementations\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:services\\implementations\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\areas\\admin\\views\\shared\\_layout_admin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:areas\\admin\\views\\shared\\_layout_admin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\services\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:services\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\repositories\\interfaces\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -97,10 +125,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\areas\\admin\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:areas\\admin\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\areas\\admin\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -151,10 +175,6 @@
       "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -181,10 +201,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\repositories\\implementations\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:repositories\\implementations\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4550BDB1-68CB-4576-8C75-18168F33D125}|DoAnNhom08LTW.csproj|f:\\laptrinhweb-2026\\doannhom08ltw\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -350,58 +366,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DESICIONS.md",
-              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\DESICIONS.md",
-              "RelativeDocumentMoniker": "DESICIONS.md",
-              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\DESICIONS.md",
-              "RelativeToolTip": "DESICIONS.md",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-11-21T04:06:09.566Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Error.cshtml",
-              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Home\\Error.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Error.cshtml",
-              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Home\\Error.cshtml",
-              "RelativeToolTip": "Views\\Home\\Error.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-21T03:48:59.392Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAAOIAAAAAAAAAAAAYwEYAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "AccountService.cs",
+              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Services\\Implementations\\AccountService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\AccountService.cs",
+              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Services\\Implementations\\AccountService.cs",
+              "RelativeToolTip": "Services\\Implementations\\AccountService.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAAAKUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:32:41.664Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ExceptionMiddleware.cs",
-              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Middleware\\ExceptionMiddleware.cs",
-              "RelativeDocumentMoniker": "Middleware\\ExceptionMiddleware.cs",
-              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Middleware\\ExceptionMiddleware.cs",
-              "RelativeToolTip": "Middleware\\ExceptionMiddleware.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAiwD4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:54:48.045Z",
+              "WhenOpened": "2026-11-19T01:46:57.954Z",
               "EditorCaption": ""
             },
             {
@@ -412,53 +389,40 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAuwCsAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAAAzwD8AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-19T00:24:29.302Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-22T02:28:24.246Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "IAccountService.cs",
+              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Services\\Interfaces\\IAccountService.cs",
+              "RelativeDocumentMoniker": "Services\\Interfaces\\IAccountService.cs",
+              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Services\\Interfaces\\IAccountService.cs",
+              "RelativeToolTip": "Services\\Interfaces\\IAccountService.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAuwBAAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T02:47:33.428Z",
+              "WhenOpened": "2026-11-19T01:46:02.022Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "README.md",
-              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\README.md",
-              "RelativeDocumentMoniker": "README.md",
-              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\README.md",
-              "RelativeToolTip": "README.md",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABkAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-11-19T00:35:55.071Z",
+              "DocumentIndex": 8,
+              "Title": "VerifyLoginOtpViewModel.cs",
+              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Models\\ViewModels\\VerifyLoginOtpViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\VerifyLoginOtpViewModel.cs",
+              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Models\\ViewModels\\VerifyLoginOtpViewModel.cs",
+              "RelativeToolTip": "Models\\ViewModels\\VerifyLoginOtpViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-27T08:21:14.346Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 13,
               "Title": "TASK.md",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\TASK.md",
               "RelativeDocumentMoniker": "TASK.md",
@@ -466,12 +430,62 @@
               "RelativeToolTip": "TASK.md",
               "ViewState": "AgIAAGAAAAAAAAAAAAAAAMMBAACLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-11-19T01:23:16.905Z",
+              "WhenOpened": "2026-11-19T01:23:16.905Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "README.md",
+              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-11-19T00:35:55.071Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ExceptionMiddleware.cs",
+              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Middleware\\ExceptionMiddleware.cs",
+              "RelativeDocumentMoniker": "Middleware\\ExceptionMiddleware.cs",
+              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Middleware\\ExceptionMiddleware.cs",
+              "RelativeToolTip": "Middleware\\ExceptionMiddleware.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAiwBkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-19T01:54:48.045Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAwwHoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-19T01:32:41.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
+              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-22T02:28:12.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "AccessDenied.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Account\\AccessDenied.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\AccessDenied.cshtml",
@@ -479,12 +493,123 @@
               "RelativeToolTip": "Views\\Account\\AccessDenied.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-21T00:02:41.046Z",
+              "WhenOpened": "2026-11-21T00:02:41.046Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "Services\\EmailService.cs",
+              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Services\\EmailService.cs",
+              "RelativeToolTip": "Services\\EmailService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA7wAsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-27T08:08:27.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VerifyRegisterOtp.cshtml",
+              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Account\\VerifyRegisterOtp.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\VerifyRegisterOtp.cshtml",
+              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Account\\VerifyRegisterOtp.cshtml",
+              "RelativeToolTip": "Views\\Account\\VerifyRegisterOtp.cshtml",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAAGYAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-27T08:51:21.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T02:47:33.428Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-11-19T03:36:51.065Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "EmailSetting.cs",
+              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Models\\EmailSetting.cs",
+              "RelativeDocumentMoniker": "Models\\EmailSetting.cs",
+              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Models\\EmailSetting.cs",
+              "RelativeToolTip": "Models\\EmailSetting.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-27T08:07:45.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-22T02:28:24.246Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-11-20T23:55:02.805Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DESICIONS.md",
+              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\DESICIONS.md",
+              "RelativeDocumentMoniker": "DESICIONS.md",
+              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\DESICIONS.md",
+              "RelativeToolTip": "DESICIONS.md",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-11-21T04:06:09.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Home\\Error.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Error.cshtml",
+              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Home\\Error.cshtml",
+              "RelativeToolTip": "Views\\Home\\Error.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-21T03:48:59.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "AccountRepository.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Repositories\\Implementations\\AccountRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\AccountRepository.cs",
@@ -492,12 +617,11 @@
               "RelativeToolTip": "Repositories\\Implementations\\AccountRepository.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAA4wCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T02:27:05.367Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T02:27:05.367Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 20,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "data\\ApplicationDbContext.cs",
@@ -505,12 +629,11 @@
               "RelativeToolTip": "data\\ApplicationDbContext.cs",
               "ViewState": "AgIAADYAAAAAAAAAAAAuwEwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T03:15:12.372Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T03:15:12.372Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 21,
               "Title": "ChiTietDonHang.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Models\\ChiTietDonHang.cs",
               "RelativeDocumentMoniker": "Models\\ChiTietDonHang.cs",
@@ -518,12 +641,11 @@
               "RelativeToolTip": "Models\\ChiTietDonHang.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAYwBEAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:35:52.755Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T01:35:52.755Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 22,
               "Title": "DanhMuc.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Models\\DanhMuc.cs",
               "RelativeDocumentMoniker": "Models\\DanhMuc.cs",
@@ -531,12 +653,11 @@
               "RelativeToolTip": "Models\\DanhMuc.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:34:21.033Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T01:34:21.033Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 23,
               "Title": "DonHang.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Models\\DonHang.cs",
               "RelativeDocumentMoniker": "Models\\DonHang.cs",
@@ -544,12 +665,11 @@
               "RelativeToolTip": "Models\\DonHang.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAIwAkAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:34:59.335Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T01:34:59.335Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 24,
               "Title": "SanPham.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Models\\SanPham.cs",
               "RelativeDocumentMoniker": "Models\\SanPham.cs",
@@ -557,12 +677,11 @@
               "RelativeToolTip": "Models\\SanPham.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAIwAkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:34:42.161Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T01:34:42.161Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 25,
               "Title": "KhuyenMai.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Models\\KhuyenMai.cs",
               "RelativeDocumentMoniker": "Models\\KhuyenMai.cs",
@@ -570,25 +689,11 @@
               "RelativeToolTip": "Models\\KhuyenMai.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:34:33.613Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T01:34:33.613Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "AccountService.cs",
-              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Services\\Implementations\\AccountService.cs",
-              "RelativeDocumentMoniker": "Services\\Implementations\\AccountService.cs",
-              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Services\\Implementations\\AccountService.cs",
-              "RelativeToolTip": "Services\\Implementations\\AccountService.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAiwIkAAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:46:57.954Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 26,
               "Title": "_Layout_admin.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Views\\Shared\\_Layout_admin.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Shared\\_Layout_admin.cshtml",
@@ -596,12 +701,11 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\Shared\\_Layout_admin.cshtml",
               "ViewState": "AgIAAJUAAAAAAAAAAAAuwKQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-22T02:26:49.841Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-22T02:26:49.841Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 27,
               "Title": "Index.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Account\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Index.cshtml",
@@ -609,25 +713,11 @@
               "RelativeToolTip": "Views\\Account\\Index.cshtml",
               "ViewState": "AgIAADkAAAAAAAAAAAAuwHIAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-19T01:51:58.453Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T01:51:58.453Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "IAccountService.cs",
-              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Services\\Interfaces\\IAccountService.cs",
-              "RelativeDocumentMoniker": "Services\\Interfaces\\IAccountService.cs",
-              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Services\\Interfaces\\IAccountService.cs",
-              "RelativeToolTip": "Services\\Interfaces\\IAccountService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:46:02.022Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 28,
               "Title": "IAccountRepository.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Repositories\\Interfaces\\IAccountRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\IAccountRepository.cs",
@@ -635,12 +725,11 @@
               "RelativeToolTip": "Repositories\\Interfaces\\IAccountRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T02:25:32.801Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T02:25:32.801Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 29,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\CategoryController.cs",
@@ -648,12 +737,11 @@
               "RelativeToolTip": "Areas\\Admin\\Controllers\\CategoryController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:28:25.364Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T01:28:25.364Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 31,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\_ViewImports.cshtml",
@@ -661,12 +749,11 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\_ViewImports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-22T02:27:02.466Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-22T02:27:02.466Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 30,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\_ViewStart.cshtml",
@@ -674,12 +761,11 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\_ViewStart.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-22T02:27:19.306Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-22T02:27:19.306Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 32,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
@@ -687,12 +773,11 @@
               "RelativeToolTip": "Views\\_ViewImports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-21T00:22:33.961Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-21T00:22:33.961Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 33,
               "Title": "Index.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
@@ -700,25 +785,11 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
               "ViewState": "AgIAAHIAAAAAAAAAAAAuwIoAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-19T01:50:58.763Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T01:50:58.763Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\_ViewStart.cshtml",
-              "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
-              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\_ViewStart.cshtml",
-              "RelativeToolTip": "Views\\_ViewStart.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-22T02:28:12.697Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 34,
               "Title": "_Layout_user.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Shared\\_Layout_user.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout_user.cshtml",
@@ -726,12 +797,11 @@
               "RelativeToolTip": "Views\\Shared\\_Layout_user.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-22T02:28:27.71Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-22T02:28:27.71Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 35,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\DashboardController.cs",
@@ -739,12 +809,11 @@
               "RelativeToolTip": "Areas\\Admin\\Controllers\\DashboardController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:24:40.067Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T01:24:40.067Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 36,
               "Title": "_Header.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Shared\\_Header.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Header.cshtml",
@@ -752,12 +821,11 @@
               "RelativeToolTip": "Views\\Shared\\_Header.cshtml",
               "ViewState": "AgIAAGUAAAAAAAAAAAAuwIYAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-19T01:53:04.752Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T01:53:04.752Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 37,
               "Title": "ProductController.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
@@ -765,12 +833,11 @@
               "RelativeToolTip": "Controllers\\ProductController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:31:49.703Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T01:31:49.703Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 38,
               "Title": "CartController.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "Controllers\\CartController.cs",
@@ -778,12 +845,11 @@
               "RelativeToolTip": "Controllers\\CartController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:32:01.434Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T01:32:01.434Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 39,
               "Title": "OrderController.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Controllers\\OrderController.cs",
               "RelativeDocumentMoniker": "Controllers\\OrderController.cs",
@@ -791,12 +857,11 @@
               "RelativeToolTip": "Controllers\\OrderController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:32:30.104Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T01:32:30.104Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 40,
               "Title": "OrderController.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Controllers\\OrderController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\OrderController.cs",
@@ -804,12 +869,11 @@
               "RelativeToolTip": "Areas\\Admin\\Controllers\\OrderController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:30:40.433Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T01:30:40.433Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 41,
               "Title": "PromotionController.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Controllers\\PromotionController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\PromotionController.cs",
@@ -817,12 +881,11 @@
               "RelativeToolTip": "Areas\\Admin\\Controllers\\PromotionController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:29:40.497Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T01:29:40.497Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 42,
               "Title": "ProductController.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\ProductController.cs",
@@ -830,25 +893,11 @@
               "RelativeToolTip": "Areas\\Admin\\Controllers\\ProductController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:29:01.095Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T01:29:01.095Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "appsettings.Development.json",
-              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\appsettings.Development.json",
-              "RelativeToolTip": "appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-11-20T23:55:02.805Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 43,
               "Title": "Profile.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Account\\Profile.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Profile.cshtml",
@@ -856,12 +905,11 @@
               "RelativeToolTip": "Views\\Account\\Profile.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAI4AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-19T02:35:59.567Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-19T02:35:59.567Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 44,
               "Title": "TaiKhoan.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Models\\TaiKhoan.cs",
               "RelativeDocumentMoniker": "Models\\TaiKhoan.cs",
@@ -873,7 +921,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 45,
               "Title": "ProductRepository.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Repositories\\Implementations\\ProductRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\ProductRepository.cs",
@@ -885,7 +933,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 46,
               "Title": "ProfileViewModel.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Models\\ViewModels\\ProfileViewModel.cs",
               "RelativeDocumentMoniker": "Models\\ViewModels\\ProfileViewModel.cs",
@@ -897,7 +945,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 47,
               "Title": "Login.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
@@ -909,7 +957,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 48,
               "Title": "bootstrap.css",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
               "RelativeDocumentMoniker": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
@@ -921,7 +969,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 49,
               "Title": "CategoryRepository.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Repositories\\Implementations\\CategoryRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\CategoryRepository.cs",
@@ -933,19 +981,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-11-19T03:36:51.065Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 50,
               "Title": "Register.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
@@ -957,7 +993,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 51,
               "Title": "TESTPLAN.md",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\TESTPLAN.md",
               "RelativeDocumentMoniker": "TESTPLAN.md",
@@ -969,7 +1005,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 52,
               "Title": "IProductRepository.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Repositories\\Interfaces\\IProductRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\IProductRepository.cs",
@@ -981,7 +1017,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 53,
               "Title": "RegisterViewModel.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Models\\ViewModels\\RegisterViewModel.cs",
               "RelativeDocumentMoniker": "Models\\ViewModels\\RegisterViewModel.cs",
@@ -993,7 +1029,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 54,
               "Title": "LoginViewModel.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Models\\ViewModels\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "Models\\ViewModels\\LoginViewModel.cs",
@@ -1005,7 +1041,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 55,
               "Title": "DoAnNhom08LTW.csproj",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\DoAnNhom08LTW.csproj",
               "RelativeDocumentMoniker": "DoAnNhom08LTW.csproj",
@@ -1017,7 +1053,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 56,
               "Title": "Index.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Cart\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Cart\\Index.cshtml",
@@ -1029,7 +1065,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 57,
               "Title": "Privacy.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Home\\Privacy.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Privacy.cshtml",
@@ -1041,7 +1077,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 58,
               "Title": "OrderRepository.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Repositories\\Implementations\\OrderRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementations\\OrderRepository.cs",
@@ -1053,7 +1089,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 59,
               "Title": "IOrderRepository.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Repositories\\Interfaces\\IOrderRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\IOrderRepository.cs",
@@ -1065,7 +1101,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 60,
               "Title": "ICategoryRepository.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Repositories\\Interfaces\\ICategoryRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interfaces\\ICategoryRepository.cs",
@@ -1077,7 +1113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 61,
               "Title": "PEER_REVIEW.md",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\PEER_REVIEW.md",
               "RelativeDocumentMoniker": "PEER_REVIEW.md",
@@ -1089,7 +1125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 62,
               "Title": "MEETING_NOTES.md",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\MEETING_NOTES.md",
               "RelativeDocumentMoniker": "MEETING_NOTES.md",
@@ -1101,7 +1137,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 63,
               "Title": "ARCHITECTURE.md",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\ARCHITECTURE.md",
               "RelativeDocumentMoniker": "ARCHITECTURE.md",
@@ -1113,7 +1149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 64,
               "Title": "_Pagination.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Shared\\_Pagination.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Pagination.cshtml",
@@ -1125,7 +1161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 65,
               "Title": "_SearchBar.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Shared\\_SearchBar.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_SearchBar.cshtml",
@@ -1137,7 +1173,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 66,
               "Title": "_Footer.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Shared\\_Footer.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Footer.cshtml",
@@ -1149,7 +1185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 67,
               "Title": "Index.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Order\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Order\\Index.cshtml",
@@ -1161,7 +1197,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 68,
               "Title": "Index.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Views\\Promotion\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Promotion\\Index.cshtml",
@@ -1173,7 +1209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 69,
               "Title": "Index.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Views\\Product\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Product\\Index.cshtml",
@@ -1185,7 +1221,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 70,
               "Title": "Index.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Views\\Order\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Order\\Index.cshtml",
@@ -1197,7 +1233,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 71,
               "Title": "Index.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Views\\Category\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Category\\Index.cshtml",
@@ -1209,7 +1245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 72,
               "Title": "Index.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Product\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Product\\Index.cshtml",
@@ -1221,7 +1257,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 73,
               "Title": "CartSummaryViewComponent.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\ViewComponents\\CartSummaryViewComponent.cs",
               "RelativeDocumentMoniker": "ViewComponents\\CartSummaryViewComponent.cs",
@@ -1233,7 +1269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 74,
               "Title": "NotificationViewComponent.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\ViewComponents\\NotificationViewComponent.cs",
               "RelativeDocumentMoniker": "ViewComponents\\NotificationViewComponent.cs",
@@ -1245,7 +1281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 75,
               "Title": "OrderService.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Services\\Implementations\\OrderService.cs",
               "RelativeDocumentMoniker": "Services\\Implementations\\OrderService.cs",
@@ -1257,7 +1293,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 76,
               "Title": "CategoryService.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Services\\Implementations\\CategoryService.cs",
               "RelativeDocumentMoniker": "Services\\Implementations\\CategoryService.cs",
@@ -1269,7 +1305,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 77,
               "Title": "ProductService.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Services\\Implementations\\ProductService.cs",
               "RelativeDocumentMoniker": "Services\\Implementations\\ProductService.cs",
@@ -1281,7 +1317,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 78,
               "Title": "IOrderService.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Services\\Interfaces\\IOrderService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IOrderService.cs",
@@ -1293,7 +1329,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 79,
               "Title": "ICategoryService.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Services\\Interfaces\\ICategoryService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\ICategoryService.cs",
@@ -1305,7 +1341,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 80,
               "Title": "IProductService.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Services\\Interfaces\\IProductService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IProductService.cs",
@@ -1317,7 +1353,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 81,
               "Title": "CheckoutViewModel.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Models\\ViewModels\\CheckoutViewModel.cs",
               "RelativeDocumentMoniker": "Models\\ViewModels\\CheckoutViewModel.cs",
@@ -1329,7 +1365,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 82,
               "Title": "CartViewModel.cs",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Models\\ViewModels\\CartViewModel.cs",
               "RelativeDocumentMoniker": "Models\\ViewModels\\CartViewModel.cs",
@@ -1341,7 +1377,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 83,
               "Title": "Order.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Views\\Order\\Order.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Order\\Order.cshtml",
@@ -1353,7 +1389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 84,
               "Title": "Promotion.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Views\\Promotion\\Promotion.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Promotion\\Promotion.cshtml",
@@ -1365,7 +1401,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 85,
               "Title": "Product.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Views\\Product\\Product.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Product\\Product.cshtml",
@@ -1377,7 +1413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 86,
               "Title": "Category.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Views\\Category\\Category.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Category\\Category.cshtml",
@@ -1389,7 +1425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 87,
               "Title": "Dashboard.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Areas\\Admin\\Views\\Dashboard\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Dashboard\\Dashboard.cshtml",
@@ -1401,7 +1437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
+              "DocumentIndex": 88,
               "Title": "_ValidationScriptsPartial.cshtml",
               "DocumentMoniker": "F:\\LaptrinhWeb-2026\\DoAnNhom08LTW\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_ValidationScriptsPartial.cshtml",

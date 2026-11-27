@@ -46,25 +46,28 @@ namespace DoAnNhom08LTW.Services.Implementations
             return true;
         }
 
-        public async Task<TaiKhoan?> LoginAsync(
-            LoginViewModel model)
+        public async Task<TaiKhoan?> LoginAsync(LoginViewModel model)
         {
-            var user =
-                await _repository.GetByEmailAsync(model.Email);
+            var user = await _repository.GetByEmailAsync(model.Email);
 
-            if (user == null)
+            // Chặn luôn nếu không tìm thấy tài khoản HOẶC tài khoản đang bị khóa (DangHoatDong == false)
+            if (user == null || !user.DangHoatDong)
                 return null;
 
-            var result =
-                _passwordHasher.VerifyHashedPassword(
-                    user,
-                    user.MatKhauHash,
-                    model.Password);
+            var result = _passwordHasher.VerifyHashedPassword(
+                user,
+                user.MatKhauHash,
+                model.Password);
 
-            return result ==
-                   PasswordVerificationResult.Success
+            return result == PasswordVerificationResult.Success
                    ? user
                    : null;
+        }
+
+        // Thêm hàm này cho bước VerifyLoginOtp gọi
+        public async Task<TaiKhoan?> GetByIdAsync(int id)
+        {
+            return await _repository.GetByIdAsync(id);
         }
 
         // 1. Lấy thông tin Profile đưa lên giao diện
@@ -155,6 +158,11 @@ namespace DoAnNhom08LTW.Services.Implementations
             await _repository.UpdateAsync(user);
 
             return (true, $"Đã cập nhật quyền của {user.Email} thành {newRole}!");
+        }
+        public async Task<bool> IsEmailExistsAsync(string email)
+        {
+            var existingUser = await _repository.GetByEmailAsync(email);
+            return existingUser != null;
         }
     }
 }
